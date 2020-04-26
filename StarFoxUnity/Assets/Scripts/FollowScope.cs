@@ -6,9 +6,11 @@ public class FollowScope : MonoBehaviour
 {
     [SerializeField] GameObject lookAtObject;
     Rigidbody rb;
-    Vector2 distance;
+    public Vector2 distance;
+    public Vector3 viewportPos;
+    public Vector3 viewportAim;
 
-   // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
@@ -18,17 +20,22 @@ public class FollowScope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+        viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
         transform.LookAt(lookAtObject.transform.position);
-        distance = new Vector2(lookAtObject.transform.position.x - transform.position.x, lookAtObject.transform.position.y - transform.position.y);
-    }
 
+        //viewportPos = transform.position;
+        //viewportAim = lookAtObject.transform.position;
+        distance = viewportAim - viewportPos;
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(Mathf.Pow(distance.x,3),Mathf.Pow(distance.y,3),0)*0.1f);
+    }
     private void FixedUpdate()
     {
-        Vector3 newVelocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
-        if ((rb.velocity.x * distance.x) < 0) newVelocity.x *= 0.5f;
-        if ((rb.velocity.y * distance.y) < 0) newVelocity.y *= 0.5f;
-        rb.velocity = newVelocity;
-        rb.AddForce(0.2f * distance * distance * distance);
+        //Vector3 newVelocity = rb.velocity;
+        //if ((rb.velocity.x * distance.x) < 0) newVelocity.x *= 0.5f;
+        //if ((rb.velocity.y * distance.y) < 0) newVelocity.y *= 0.5f;
 
+        //rb.AddForce(0.2f * distance * distance * distance);
+        //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
     }
 }

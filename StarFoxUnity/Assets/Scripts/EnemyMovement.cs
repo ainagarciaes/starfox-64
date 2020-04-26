@@ -32,12 +32,13 @@ public class EnemyMovement : MonoBehaviour
     {
         if (hasChanged)
         {
-            rb.velocity = 0.7f * rb.velocity;
-            rb.AddForce((pathTarget[current].position - transform.position) * 25f);
+            //rb.velocity = 0.7f * rb.velocity;
+            rb.AddForce((pathTarget[current].position - transform.position) * 2f); 
+            transform.LookAt(2 * transform.position - Camera.main.transform.position);
             //transform.LookAt(2 * transform.position - pathTarget[current].position);
             hasChanged = false;
         }
-        transform.LookAt(2 * transform.position - Camera.main.transform.position);
+        rb.AddForce((pathTarget[current].position - transform.position) * 2f);
         float velocity = Vector3.Distance(Vector3.zero, rb.velocity);
         if (current >= 0)
         {
