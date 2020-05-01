@@ -21,5 +21,7 @@ public class MoveDirection : MonoBehaviour
         lifetime += Time.deltaTime;
         transform.position += transform.forward * speed*Time.deltaTime;
         //if (lifetime > 1) Destroy(this);
+        //if( Camera.main.WorldToViewportPoint(transform.position).z< 30) DestroyImmediate(gameObject);
+
     }
 }

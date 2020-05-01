@@ -6,7 +6,7 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject scope;
-    [SerializeField] GameObject[] Weapons;
+    [SerializeField] GameObject[] weapons;
     int weaponind = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject newbullet = Instantiate(bullet, Weapons[weaponind].transform.position, Quaternion.identity);
+            GameObject newbullet = Instantiate(bullet, weapons[weaponind].transform.position, Quaternion.identity);
             newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000));
             weaponind++;
             weaponind %= 2;
