@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1.7
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 4070103081df15642a5e13a7faf92b76, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cbcb829b7b88c0b4bbf5d6e88eb31809, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.04735498, g: 0.22486252, b: 0.47803557, a: 1}
+  m_IndirectSpecularColor: {r: 0.22385061, g: 0.093965106, b: 0.4031015, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Path: {fileID: 1359096698}
   m_UpdateMethod: 0
   m_PositionUnits: 1
@@ -419,8 +419,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
@@ -5354,17 +5354,17 @@ PrefabInstance:
     - target: {fileID: -4349876608052867759, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: aee2e3781f33f1347bab9abc1b0a89d1, type: 2}
     - target: {fileID: -4349876608052867759, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: 2d180451782d9544ea834fe8d9ba4ddf, type: 2}
     - target: {fileID: -4349876608052867759, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: 84c8ca0a458cd744e96483ea8cf5ff29, type: 2}
     - target: {fileID: -4216859302048453862, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
@@ -5474,22 +5474,22 @@ PrefabInstance:
     - target: {fileID: 4063835366044962077, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: 6ae0d7f9a145b86458f27fa24b9083c7, type: 2}
     - target: {fileID: 4063835366044962077, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: 2d180451782d9544ea834fe8d9ba4ddf, type: 2}
     - target: {fileID: 4063835366044962077, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: aee2e3781f33f1347bab9abc1b0a89d1, type: 2}
     - target: {fileID: 4063835366044962077, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
       propertyPath: m_Materials.Array.data[3]
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: 84c8ca0a458cd744e96483ea8cf5ff29, type: 2}
     - target: {fileID: 5919054196939145287, guid: a5996f68f386154449a6a1fcf26c1ff2,
         type: 3}
@@ -5544,8 +5544,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8bfc0356575d334a928927a4470cd5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Up: {x: 0, y: 0, z: 0}
 --- !u!1001 &1779570883
 PrefabInstance:
@@ -6011,14 +6011,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 712267449}
     m_Modifications:
-    - target: {fileID: 2098334086, guid: fa072eea7eed7ae49970a995c8036730, type: 3}
-      propertyPath: scope
-      value: 
-      objectReference: {fileID: 762887463}
-    - target: {fileID: 8927096921575262969, guid: fa072eea7eed7ae49970a995c8036730,
+    - target: {fileID: 7599746772731002284, guid: fa072eea7eed7ae49970a995c8036730,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8927096921750553192, guid: fa072eea7eed7ae49970a995c8036730,
         type: 3}
