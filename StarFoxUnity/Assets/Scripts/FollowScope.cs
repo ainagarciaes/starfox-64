@@ -27,7 +27,7 @@ public class FollowScope : MonoBehaviour
         //viewportPos = transform.position;
         //viewportAim = lookAtObject.transform.position;
         distance = viewportAim - viewportPos;
-        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(Mathf.Pow(distance.x,3),Mathf.Pow(distance.y,3),0)*0.1f);
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x,distance.y,0)*0.005f);
     }
     private void FixedUpdate()
     {
