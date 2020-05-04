@@ -52,7 +52,7 @@ public class FollowScope : MonoBehaviour
     private void rotate()
     {
         rotation_step += 1;
-        float diff = Mathf.Sin(Mathf.PI * rotation_step * Time.deltaTime * 0.01f);
+        float diff = Mathf.Sin(Mathf.PI * rotation_step * Time.deltaTime);
 
         if (diff <= 0)
         {
