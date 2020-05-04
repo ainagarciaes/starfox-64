@@ -23,6 +23,6 @@ public class FollowScope : MonoBehaviour
 
         transform.RotateAround(transform.position, transform.forward, 50 * (viewportPos.x - viewportAim.x));
         distance = viewportAim - viewportPos;
-        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y, 0) * 0.005f);
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y-0.1f, 0) * 0.005f);
     }
 }

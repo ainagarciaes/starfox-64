@@ -20,7 +20,7 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newbullet = Instantiate(bullet, weapons[weaponind].transform.position, Quaternion.identity);
-            newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000));
+            newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
             weaponind++;
             weaponind %= 2;
         }
