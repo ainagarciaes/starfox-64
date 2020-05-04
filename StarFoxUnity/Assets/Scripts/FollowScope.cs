@@ -5,7 +5,6 @@ using UnityEngine;
 public class FollowScope : MonoBehaviour
 {
     [SerializeField] GameObject lookAtObject;
-    Rigidbody rb;
     public Vector2 distance;
     public Vector3 viewportPos;
     public Vector3 viewportAim;
@@ -13,8 +12,6 @@ public class FollowScope : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
@@ -24,18 +21,8 @@ public class FollowScope : MonoBehaviour
         viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
         transform.LookAt(lookAtObject.transform.position);
 
-        //viewportPos = transform.position;
-        //viewportAim = lookAtObject.transform.position;
+        transform.RotateAround(transform.position, transform.forward, 50 * (viewportPos.x - viewportAim.x));
         distance = viewportAim - viewportPos;
-        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x,distance.y,0)*0.005f);
-    }
-    private void FixedUpdate()
-    {
-        //Vector3 newVelocity = rb.velocity;
-        //if ((rb.velocity.x * distance.x) < 0) newVelocity.x *= 0.5f;
-        //if ((rb.velocity.y * distance.y) < 0) newVelocity.y *= 0.5f;
-
-        //rb.AddForce(0.2f * distance * distance * distance);
-        //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y, 0) * 0.005f);
     }
 }
