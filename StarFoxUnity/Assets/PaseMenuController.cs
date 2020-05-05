@@ -1,18 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PaseMenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Transform menu;
+    Transform instr;
+
     void Start()
     {
-        
+        menu = this.gameObject.transform.GetChild(0);
+        instr = this.gameObject.transform.GetChild(1);
+        ToPauseMenu();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToInstructionsMenu()
     {
-        
+        menu.gameObject.SetActive(false);
+        instr.gameObject.SetActive(true);
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ToPauseMenu()
+    {
+        menu.gameObject.SetActive(true);
+        instr.gameObject.SetActive(false);
     }
 }
