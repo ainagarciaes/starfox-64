@@ -32,9 +32,10 @@ public class PaseMenuController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void QuitGame()
+    public void ResumeGame()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        transform.gameObject.SetActive(false);
     }
 
     public void ToPauseMenu()
