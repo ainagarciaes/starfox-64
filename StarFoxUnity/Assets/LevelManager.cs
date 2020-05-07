@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenu;
@@ -9,14 +10,16 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject GameWinMenu;
     [SerializeField] GameObject GameGUI;
     [SerializeField] GameObject DamageGUI;
+    [SerializeField] Image healthBar;
 
     private int hitpoints = 100; // per posar algo, idk es pot adaptar després
+    private int max_hitpoints = 100;
     private int score = 0;
     private bool roll = false;
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         PauseMenu.SetActive(false);
         GameOverMenu.SetActive(false);
         GameWinMenu.SetActive(false);
@@ -27,14 +30,23 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // show pause menu
-        if(Input.GetKeyDown(KeyCode.P))
+        if (!PauseMenu.activeInHierarchy)
         {
+            GameGUI.SetActive(true);
+        }
+        // show pause menu
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameOverMenu.SetActive(false);
+            GameWinMenu.SetActive(false);
+            GameGUI.SetActive(false);
+            DamageGUI.SetActive(false);
             PauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
+
         // rotation code
-        else if(!roll && Input.GetKeyDown(KeyCode.R))
+        else if (!roll && Input.GetKeyDown(KeyCode.R))
         {
             roll = true;
             // todo passar aqui el codi del roll i afegir-hi el que calgui per settejar el roll a false quan acabi
@@ -45,6 +57,7 @@ public class LevelManager : MonoBehaviour
     {
         if (!(roll && type == 0)) // roll evita damage per colisio
         {
+            print("taking damage equal to: " + damage);
             hitpoints -= damage;
             if (hitpoints <= 0)
             {
@@ -52,7 +65,7 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                // show damage animation
+                healthBar.fillAmount = (float) hitpoints / max_hitpoints;
             }
         }
     }
@@ -62,11 +75,6 @@ public class LevelManager : MonoBehaviour
         score += scoreIncr;
     }
 
-    public int GetHitPoints()
-    {
-        return hitpoints;
-    }
-
     public int GetScore()
     {
         return score;
@@ -74,6 +82,10 @@ public class LevelManager : MonoBehaviour
 
     void GameOver()
     {
-        // TODO
+        PauseMenu.SetActive(false);
+        GameOverMenu.SetActive(true);
+        GameWinMenu.SetActive(false);
+        GameGUI.SetActive(false);
+        DamageGUI.SetActive(false);
     }
 }
