@@ -30,20 +30,23 @@ public class MoveScope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            rollInstant = 0.5f; bias = 1;
-        }
-        if (rollInstant <= 0) Move();
+        if (LevelManager.IsPaused) { /*do nothing*/ }
         else
         {
-            viewportPos = Camera.main.WorldToViewportPoint(transform.position);
-            viewportAim = Camera.main.WorldToViewportPoint(player.transform.position);
-            rollInstant -= Time.deltaTime;
-            if (rollInstant > 0.4f) CenterScopeLocation();
-            else TweenScopeLocation();
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+            {
+                rollInstant = 0.5f; bias = 1;
+            }
+            if (rollInstant <= 0) Move();
+            else
+            {
+                viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+                viewportAim = Camera.main.WorldToViewportPoint(player.transform.position);
+                rollInstant -= Time.deltaTime;
+                if (rollInstant > 0.4f) CenterScopeLocation();
+                else TweenScopeLocation();
+            }
         }
-
 
     }
 

@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject DamageGUI;
     [SerializeField] Image healthBar;
 
+    public static bool IsPaused = false;
+
     private int hitpoints = 100; // per posar algo, idk es pot adaptar després
     private int max_hitpoints = 100;
     private int score = 0;
@@ -30,6 +32,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IsPaused = PauseMenu.activeInHierarchy;
+        Cursor.visible = IsPaused;
         if (!PauseMenu.activeInHierarchy)
         {
             GameGUI.SetActive(true);

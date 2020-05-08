@@ -17,12 +17,16 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (LevelManager.IsPaused) { /*do nothing*/ }
+        else
         {
-            GameObject newbullet = Instantiate(bullet, weapons[weaponind].transform.position, Quaternion.identity);
-            newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
-            weaponind++;
-            weaponind %= 2;
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject newbullet = Instantiate(bullet, weapons[weaponind].transform.position, Quaternion.identity);
+                newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
+                weaponind++;
+                weaponind %= 2;
+            }
         }
     }
 }

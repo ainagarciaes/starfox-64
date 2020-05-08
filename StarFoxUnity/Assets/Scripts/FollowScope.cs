@@ -32,39 +32,43 @@ public class FollowScope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            rotating = true;
-            rollInitialized = false;
-            rotation_side = -1;
-            bias = 1;
-            duration = 0;
-
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            rotating = true;
-            rollInitialized = false;
-            rotation_side = 1;
-            bias = 1;
-            duration = 0;
-
-        }
-        if (rotating)
-        {
-            DoABarrelRoll();
-            duration += Time.deltaTime;
-        }
+        if (LevelManager.IsPaused) { /*do nothing*/ }
         else
         {
-            print(duration);
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                rotating = true;
+                rollInitialized = false;
+                rotation_side = -1;
+                bias = 1;
+                duration = 0;
 
-            viewportPos = Camera.main.WorldToViewportPoint(transform.position);
-            viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
-            transform.LookAt(lookAtObject.transform.position);
-            transform.RotateAround(transform.position, transform.forward, 50 * (viewportPos.x - viewportAim.x));
-            distance = viewportAim - viewportPos;
-            transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0) * Time.deltaTime);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                rotating = true;
+                rollInitialized = false;
+                rotation_side = 1;
+                bias = 1;
+                duration = 0;
+
+            }
+            if (rotating)
+            {
+                DoABarrelRoll();
+                duration += Time.deltaTime;
+            }
+            else
+            {
+                print(duration);
+
+                viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+                viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
+                transform.LookAt(lookAtObject.transform.position);
+                transform.RotateAround(transform.position, transform.forward, 50 * (viewportPos.x - viewportAim.x));
+                distance = viewportAim - viewportPos;
+                transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0) * Time.deltaTime);
+            }
         }
     }
 
