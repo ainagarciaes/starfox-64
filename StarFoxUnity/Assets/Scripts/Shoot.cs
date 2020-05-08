@@ -7,11 +7,16 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject scope;
     [SerializeField] GameObject[] weapons;
-    int weaponind = 0;
+    float rate = 12f;
+    float cooldown = 0.5f;
+    int cooldownrate = 3;
+    float next;
+    int nshot;
     // Start is called before the first frame update
     void Start()
     {
-
+        next = 0;
+        nshot = 0;
     }
 
     // Update is called once per frame
@@ -20,12 +25,31 @@ public class Shoot : MonoBehaviour
         if (LevelManager.IsPaused) { /*do nothing*/ }
         else
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                GameObject newbullet = Instantiate(bullet, weapons[weaponind].transform.position, Quaternion.identity);
-                newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
-                weaponind++;
-                weaponind %= 2;
+                if (next <= 0)
+                {
+                    nshot++;
+                    GameObject newbullet = Instantiate(bullet, weapons[0].transform.position, Quaternion.identity);
+                    newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
+                    newbullet = Instantiate(bullet, weapons[1].transform.position, Quaternion.identity);
+                    newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
+                    if (nshot >= cooldownrate)
+                    {
+                        next = cooldown;
+                        nshot = 0;
+                    }
+                    else next = 1.0f / rate ;
+                }
+                else
+                {
+                    next -= Time.deltaTime;
+                }
+            }
+            else
+            {
+                next = 0;
+                nshot = 0;
             }
         }
     }

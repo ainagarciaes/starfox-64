@@ -141,6 +141,7 @@ public class FollowScope : MonoBehaviour
         {
             Destroy(other.gameObject);
             hits++;
+            LevelManager.Instance.UpdateHitPoints(1, 0);
             //Destroy(gameObject);
         }
     }
