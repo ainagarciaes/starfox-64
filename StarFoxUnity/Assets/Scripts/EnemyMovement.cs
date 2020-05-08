@@ -100,7 +100,8 @@ public class EnemyMovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerBullet"))
+        if (!other.CompareTag("EnemyBullet"))
+            if (other.CompareTag("PlayerBullet"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
