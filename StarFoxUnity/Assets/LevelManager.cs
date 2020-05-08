@@ -3,8 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class LevelManager : MonoBehaviour
 {
+    private static LevelManager _instance;
+
+    public static LevelManager Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject GameOverMenu;
     [SerializeField] GameObject GameWinMenu;
@@ -13,7 +30,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Image healthBar;
 
     public static bool IsPaused = false;
-
     private int hitpoints = 100; // per posar algo, idk es pot adaptar després
     private int max_hitpoints = 100;
     private int score = 0;

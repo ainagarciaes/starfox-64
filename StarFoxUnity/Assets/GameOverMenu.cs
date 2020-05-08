@@ -1,26 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-
-public class StaticObject : MonoBehaviour
+public class GameOverMenu : MonoBehaviour
 {
-    [SerializeField] int damage;
+    private TextMeshProUGUI score;
 
     // Start is called before the first frame update
     void Start()
     {
+        score = GetComponent<TextMeshProUGUI>();
+        score.text = "test";
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        print("COLLIDED"); 
-        LevelManager.Instance.UpdateHitPoints(damage,50);
     }
 }

@@ -60,7 +60,7 @@ public class FollowScope : MonoBehaviour
             }
             else
             {
-                print(duration);
+                //print(duration);
 
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
