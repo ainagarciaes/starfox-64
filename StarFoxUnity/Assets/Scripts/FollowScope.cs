@@ -8,7 +8,7 @@ public class FollowScope : MonoBehaviour
     public Vector2 distance;
     public Vector3 viewportPos;
     public Vector3 viewportAim;
-
+    public int hits;
     // rotation parameters
     private float offset;
     private float offset_ini;
@@ -26,6 +26,7 @@ public class FollowScope : MonoBehaviour
     void Start()
     {
         duration = 0;
+        hits = 0;
     }
 
     // Update is called once per frame
@@ -127,6 +128,16 @@ public class FollowScope : MonoBehaviour
                 rollingSpeed = 1;
                 rollInitialized = true;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            Destroy(other.gameObject);
+            hits++;
+            //Destroy(gameObject);
         }
     }
 }

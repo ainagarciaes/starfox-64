@@ -51,7 +51,7 @@ public class MoveScope : MonoBehaviour
     {
         distance = viewportAim - viewportPos;
 
-        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y + 0.1f, 0) * 25*Time.deltaTime);
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y + 0.1f, 0) * 25 * Time.deltaTime);
 
         if (bias > 0.05f)
             bias *= Mathf.Pow(0.999f, Time.deltaTime);
@@ -77,8 +77,8 @@ public class MoveScope : MonoBehaviour
     {
         mouseX = Input.GetAxis("Mouse X") / Screen.width;
         mouseY = Input.GetAxis("Mouse Y") / Screen.height;
-        float newx = transform.localPosition.x/screenWidth+mouseX*20;
-        float newy = transform.localPosition.y/screenHeight+mouseY*20;
+        float newx = transform.localPosition.x / screenWidth + mouseX * 20;
+        float newy = transform.localPosition.y / screenHeight + mouseY * 20;
         newx = screenWidth * Mathf.Clamp(newx, min, max);
         newy = screenHeight * Mathf.Clamp(newy, min, max);
         transform.localPosition = new Vector3(newx, newy, transform.localPosition.z);
