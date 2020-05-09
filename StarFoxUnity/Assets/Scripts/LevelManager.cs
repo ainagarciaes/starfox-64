@@ -58,8 +58,8 @@ public class LevelManager : MonoBehaviour
         {
             GameGUI.SetActive(true);
         }
-        // show pause menu
-        if (Input.GetKeyDown(KeyCode.P))
+        // GO TO PAUSE
+        if (!IsPaused && (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)))
         {
             GameOverMenu.SetActive(false);
             GameWinMenu.SetActive(false);
@@ -67,6 +67,13 @@ public class LevelManager : MonoBehaviour
             DamageGUI.SetActive(false);
             PauseMenu.SetActive(true);
             Time.timeScale = 0;
+        }
+        // BACK FROM PAUSE
+        else if (IsPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)))
+        {
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
+            IsPaused = false;
         }
 
         // rotation code
