@@ -96,6 +96,7 @@ public class LevelManager : MonoBehaviour
             hitpoints -= damage;
             if (hitpoints <= 0)
             {
+                healthBar.fillAmount = 0;
                 GameOver();
             }
             else

@@ -147,9 +147,8 @@ public class FollowScope : MonoBehaviour
 
         if (other.CompareTag("CollidableEnemy"))
         {
-            LevelManager.Instance.UpdateHitPoints(10, 1);
-            other.enabled = false;
-            // Call level manager damage animation
+            LevelManager.Instance.UpdateHitPoints(20, 1);
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("DamagePerSecond"))
