@@ -9,6 +9,7 @@ public class ChangeCursor : MonoBehaviour
     void Start()
     {
         Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

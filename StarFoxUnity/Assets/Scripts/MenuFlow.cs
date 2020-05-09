@@ -24,6 +24,7 @@ public class MenuFlow : MonoBehaviour
         {
             title.gameObject.SetActive(false);
             menu.gameObject.SetActive(true);
+            Cursor.visible = true;
         }
     }
 }

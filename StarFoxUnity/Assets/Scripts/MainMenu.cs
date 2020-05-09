@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-
+    private void Start()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsScene()
     {
+        Cursor.visible = false;
         SceneManager.LoadScene(3);
     }
 
