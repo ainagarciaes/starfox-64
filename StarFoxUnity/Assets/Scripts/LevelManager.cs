@@ -35,6 +35,10 @@ public class LevelManager : MonoBehaviour
     private int score = 0;
     private bool roll = false;
 
+    //dmg per second variables
+    private bool burning = false;
+    private float sumDelta = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +74,17 @@ public class LevelManager : MonoBehaviour
         {
             roll = true;
             // todo passar aqui el codi del roll i afegir-hi el que calgui per settejar el roll a false quan acabi
+        }
+
+        // burning code
+        if (burning)
+        {
+            sumDelta += Time.deltaTime;
+            if (sumDelta >= 0.1f)
+            {
+                sumDelta = 0f;
+                UpdateHitPoints(1, 0);
+            }
         }
     }
 
@@ -107,5 +122,10 @@ public class LevelManager : MonoBehaviour
         GameWinMenu.SetActive(false);
         GameGUI.SetActive(false);
         DamageGUI.SetActive(false);
+    }
+
+    public void SetBurning(bool b)
+    {
+        burning = b;
     }
 }

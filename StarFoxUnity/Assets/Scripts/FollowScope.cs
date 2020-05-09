@@ -144,5 +144,25 @@ public class FollowScope : MonoBehaviour
             LevelManager.Instance.UpdateHitPoints(1, 0);
             //Destroy(gameObject);
         }
+
+        if (other.CompareTag("CollidableEnemy"))
+        {
+            LevelManager.Instance.UpdateHitPoints(10, 1);
+            other.enabled = false;
+            // Call level manager damage animation
+        }
+
+        if (other.CompareTag("DamagePerSecond"))
+        {
+            LevelManager.Instance.SetBurning(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DamagePerSecond"))
+        {
+            LevelManager.Instance.SetBurning(false);
+        }
     }
 }
