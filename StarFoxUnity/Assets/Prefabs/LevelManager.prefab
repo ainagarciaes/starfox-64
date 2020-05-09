@@ -53,6 +53,7 @@ MonoBehaviour:
   GameWinMenu: {fileID: 6407388450102057009}
   GameGUI: {fileID: 2759758028286737334}
   DamageGUI: {fileID: 6275135730628292563}
+  healthBar: {fileID: 3264410799579928852}
 --- !u!1001 &625436543631785210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,3 +729,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6906643739739162249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3264410799579928852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8256461171897212829, guid: d4be89d3f4bbed2489eaa6f1cd502541,
+    type: 3}
+  m_PrefabInstance: {fileID: 6906643739739162249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
