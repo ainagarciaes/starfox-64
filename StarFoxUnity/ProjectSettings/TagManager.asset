@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - CollidableEnemy
   - DamagePerSecond
+  - ToNextLevel
   layers:
   - Default
   - TransparentFX

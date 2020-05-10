@@ -155,6 +155,11 @@ public class FollowScope : MonoBehaviour
         {
             LevelManager.Instance.SetBurning(true);
         }
+        if (other.CompareTag("ToNextLevel"))
+        {
+            print("COLLIDES");
+            LevelManager.Instance.GameWin();
+        }
     }
 
     private void OnTriggerExit(Collider other)

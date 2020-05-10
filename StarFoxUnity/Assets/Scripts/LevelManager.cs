@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Image healthBar;
 
     public static bool IsPaused = false;
+    private bool IsGameOver = false;
+
     private int hitpoints = 100; // per posar algo, idk es pot adaptar després
     private int max_hitpoints = 100;
     private int score = 0;
@@ -125,15 +128,40 @@ public class LevelManager : MonoBehaviour
 
     void GameOver()
     {
+        IsGameOver = true;
         PauseMenu.SetActive(false);
         GameOverMenu.SetActive(true);
         GameWinMenu.SetActive(false);
         GameGUI.SetActive(false);
         DamageGUI.SetActive(false);
+        Invoke("RestartLevel", 3);
+    }
+
+    public void GameWin()
+    {
+        if (!IsGameOver)
+        {
+            PauseMenu.SetActive(false);
+            GameOverMenu.SetActive(false);
+            GameWinMenu.SetActive(true);
+            GameGUI.SetActive(false);
+            DamageGUI.SetActive(false);
+            Invoke("LoadNextLevel", 3);
+        }
     }
 
     public void SetBurning(bool b)
     {
         burning = b;
+    }
+
+    void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
