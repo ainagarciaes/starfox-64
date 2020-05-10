@@ -10,8 +10,10 @@ public class EnemySpawner : MonoBehaviour
     public int totalEnemies = 5;
     float timeCounter;
     int nSpwaned;
+    bool readyToSpawn;
     void Start()
     {
+        readyToSpawn = false;
         nSpwaned = 0;
         timeCounter = timeSpan;
     }
@@ -19,18 +21,23 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nSpwaned < totalEnemies)
-        {
-            if (timeCounter < 0)
+        if (readyToSpawn)
+            if (nSpwaned < totalEnemies)
             {
-                nSpwaned++;
-                GameObject Enemy = Instantiate(EnemyObject, transform.position, Quaternion.identity);
-                Enemy.transform.LookAt(pathTarget[0].position);
-                //Enemy.GetComponent<Rigidbody>().AddForce((pathTarget[0].position- transform.position).normalized * +300);
-                Enemy.GetComponent<EnemyMovement>().SetPathTarget(pathTarget);
-                timeCounter = timeSpan;
+                if (timeCounter < 0)
+                {
+                    nSpwaned++;
+                    GameObject Enemy = Instantiate(EnemyObject, transform.position, Quaternion.identity);
+                    Enemy.transform.LookAt(pathTarget[0].position);
+                    //Enemy.GetComponent<Rigidbody>().AddForce((pathTarget[0].position- transform.position).normalized * +300);
+                    Enemy.GetComponent<EnemyMovement>().SetPathTarget(pathTarget);
+                    timeCounter = timeSpan;
+                }
+                else timeCounter -= Time.deltaTime;
             }
-            else timeCounter -= Time.deltaTime;
-        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) readyToSpawn = true;
     }
 }
