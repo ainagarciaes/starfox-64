@@ -32,9 +32,11 @@ public class FollowScope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (LevelManager.IsPaused) { /*do nothing*/ }
         else
         {
+            LevelManager.Instance.SetRotation(rotating);
             if (Input.GetKeyDown(KeyCode.A))
             {
                 rotating = true;
@@ -46,7 +48,7 @@ public class FollowScope : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                rotating = true;
+                rotating = true;               
                 rollInitialized = false;
                 rotation_side = 1;
                 bias = 1;
