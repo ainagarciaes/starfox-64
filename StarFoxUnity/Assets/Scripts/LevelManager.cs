@@ -105,7 +105,6 @@ public class LevelManager : MonoBehaviour
         if (!(roll && type == 0)) // roll evita damage per colisio
         {
             print("taking damage equal to: " + damage);
-            DamageGUI.GetComponent<DamageAnim>().StartDamageAnimation();
             hitpoints -= damage;
             if (hitpoints <= 0)
             {
@@ -114,6 +113,7 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
+                DamageGUI.GetComponent<DamageAnim>().StartDamageAnimation();
                 healthBar.fillAmount = (float) hitpoints / max_hitpoints;
             }
         }

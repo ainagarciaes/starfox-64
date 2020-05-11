@@ -7,7 +7,7 @@ public class DamageAnim : MonoBehaviour
 {
     float timeleft = 0;
     int count = 0;
-    float velocity = 100;
+    float velocity = 200;
     Image image;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,6 @@ public class DamageAnim : MonoBehaviour
             count++;
             Color c = image.color;
             c.a = Mathf.Sin(((count%velocity) / velocity)*2*Mathf.PI)/2 + 0.5f;
-            print(c.a);
             image.color = c;
         }
         else
@@ -38,7 +37,6 @@ public class DamageAnim : MonoBehaviour
 
     public void StartDamageAnimation()
     {
-        print("Starting damage animation");
         timeleft = 2;
     }
 }
