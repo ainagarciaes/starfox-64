@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
 
     public static bool IsPaused = false;
     private bool IsGameOver = false;
+    private bool GodMode = false;
 
     private int hitpoints = 100; // per posar algo, idk es pot adaptar després
     private int max_hitpoints = 100;
@@ -61,6 +62,10 @@ public class LevelManager : MonoBehaviour
         {
             GameGUI.SetActive(true);
             DamageGUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                GodMode = !GodMode;
+            }
         }
         // GO TO PAUSE
         if (!IsPaused && (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)))
@@ -109,7 +114,10 @@ public class LevelManager : MonoBehaviour
             if (hitpoints <= 0)
             {
                 healthBar.fillAmount = 0;
-                GameOver();
+                if (!GodMode)
+                {             
+                    GameOver();
+                }
             }
             else
             {
