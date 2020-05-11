@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         GameOverMenu.SetActive(false);
         GameWinMenu.SetActive(false);
         GameGUI.SetActive(true);
-        DamageGUI.SetActive(false);
+        DamageGUI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -60,6 +60,7 @@ public class LevelManager : MonoBehaviour
         if (!PauseMenu.activeInHierarchy)
         {
             GameGUI.SetActive(true);
+            DamageGUI.SetActive(true);
         }
         // GO TO PAUSE
         if (!IsPaused && (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)))
@@ -89,6 +90,7 @@ public class LevelManager : MonoBehaviour
         // burning code
         if (burning)
         {
+            DamageGUI.GetComponent<DamageAnim>().StartDamageAnimation();
             sumDelta += Time.deltaTime;
             if (sumDelta >= 0.1f)
             {
@@ -103,6 +105,7 @@ public class LevelManager : MonoBehaviour
         if (!(roll && type == 0)) // roll evita damage per colisio
         {
             print("taking damage equal to: " + damage);
+            DamageGUI.GetComponent<DamageAnim>().StartDamageAnimation();
             hitpoints -= damage;
             if (hitpoints <= 0)
             {
