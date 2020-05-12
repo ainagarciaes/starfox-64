@@ -6,10 +6,11 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] Transform[] pathTarget;
     [SerializeField] GameObject[] weapons;
+    [SerializeField] GameObject playerHit;
     [SerializeField] GameObject bullet;
     private const int spray = 2;
     private const float spraySpan = 0.3f, cooldown = 0.7f;
-    int current =-1, weaponIndex, currentSpray;
+    int current = -1, weaponIndex, currentSpray;
     float waitToShoot;
 
     public Vector3 viewportPos;
@@ -102,9 +103,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!other.CompareTag("EnemyBullet"))
             if (other.CompareTag("PlayerBullet"))
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
+            {
+                if (playerHit != null)
+                    Instantiate(playerHit,other.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
     }
 }

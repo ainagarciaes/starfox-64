@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject muzzle;
     [SerializeField] GameObject scope;
     [SerializeField] GameObject[] weapons;
     float rate = 12f;
@@ -30,8 +31,13 @@ public class Shoot : MonoBehaviour
                 if (next <= 0)
                 {
                     nshot++;
+                    GameObject newFlash = Instantiate(muzzle, weapons[0].transform.position, Quaternion.identity);
+                    newFlash.transform.parent = gameObject.transform;
                     GameObject newbullet = Instantiate(bullet, weapons[0].transform.position, Quaternion.identity);
                     newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
+                    newFlash = Instantiate(muzzle, weapons[1].transform.position, Quaternion.identity);
+                    newFlash.transform.parent = gameObject.transform;
+
                     newbullet = Instantiate(bullet, weapons[1].transform.position, Quaternion.identity);
                     newbullet.transform.LookAt(Camera.main.ViewportToWorldPoint(Camera.main.WorldToViewportPoint(scope.transform.position) + Vector3.forward * 1000 + Vector3.up * 0.05f));
                     if (nshot >= cooldownrate)

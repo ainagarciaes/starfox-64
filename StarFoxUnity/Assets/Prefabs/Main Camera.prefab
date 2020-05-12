@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1534825962}
   m_Layer: 0
   m_Name: VJ Fighter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3022899725138503779, guid: e4c82a4e67b14334cbce5abacff33c51, type: 3}
+  muzzle: {fileID: 3022899725138503779, guid: 200d15aa1e9b6604290d6717dbad56a0, type: 3}
   scope: {fileID: 32271589}
   weapons:
   - {fileID: 7850831629729477818}
