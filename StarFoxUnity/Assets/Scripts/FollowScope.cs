@@ -5,6 +5,8 @@ using UnityEngine;
 public class FollowScope : MonoBehaviour
 {
     [SerializeField] GameObject lookAtObject;
+    [SerializeField] GameObject enemyHit;
+
     public Vector2 distance;
     public Vector3 viewportPos;
     public Vector3 viewportAim;
@@ -144,6 +146,9 @@ public class FollowScope : MonoBehaviour
             Destroy(other.gameObject);
             hits++;
             LevelManager.Instance.UpdateHitPoints(1, 0);
+            var hit = Instantiate(enemyHit, other.transform.position, Quaternion.identity);
+            hit.transform.parent = gameObject.transform;
+
             //Destroy(gameObject);
         }
 

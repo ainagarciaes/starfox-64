@@ -6,10 +6,13 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] Transform[] pathTarget;
     [SerializeField] GameObject[] weapons;
+    [SerializeField] GameObject muzzle;
+    [SerializeField] GameObject playerHit;
     [SerializeField] GameObject bullet;
+    GameObject player;
     private const int spray = 2;
     private const float spraySpan = 0.3f, cooldown = 0.7f;
-    int current =-1, weaponIndex, currentSpray;
+    int current = -1, weaponIndex, currentSpray;
     float waitToShoot;
 
     public Vector3 viewportPos;
@@ -24,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
         currentSpray = spray;
         waitToShoot = 0;
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
     // Update is called once per frame
@@ -40,8 +44,11 @@ public class EnemyMovement : MonoBehaviour
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
         else if (OnScreen())
         {
+            GameObject newFlash = Instantiate(muzzle, weapons[weaponIndex].transform.position, Quaternion.identity);
+            newFlash.transform.parent = gameObject.transform;
+            newFlash.transform.LookAt(gameObject.transform.forward);
             GameObject newbullet = Instantiate(bullet, weapons[weaponIndex].transform.position, Quaternion.identity);
-            newbullet.transform.LookAt(Camera.main.transform.position);
+            newbullet.transform.LookAt(player.transform.position);
             currentSpray--;
             weaponIndex++;
             weaponIndex %= 2;
@@ -102,9 +109,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!other.CompareTag("EnemyBullet"))
             if (other.CompareTag("PlayerBullet"))
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
+            {
+                if (playerHit != null)
+                    Instantiate(playerHit,other.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
     }
 }
