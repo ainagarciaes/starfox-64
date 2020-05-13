@@ -29,7 +29,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject GameGUI;
     [SerializeField] GameObject DamageGUI;
     [SerializeField] Image healthBar;
+    [SerializeField] GameObject Audio;
 
+    private AudioManager am;
     public static bool IsPaused = false;
     private bool IsGameOver = false;
     private bool GodMode = false;
@@ -51,6 +53,8 @@ public class LevelManager : MonoBehaviour
         GameWinMenu.SetActive(false);
         GameGUI.SetActive(true);
         DamageGUI.SetActive(true);
+        am = Audio.GetComponent<AudioManager>();
+        am.PlaySound();
     }
 
     // Update is called once per frame

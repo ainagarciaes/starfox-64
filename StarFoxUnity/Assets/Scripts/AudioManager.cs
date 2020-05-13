@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    AudioSource audio;
+    public new AudioClip[] audio;
+    AudioSource audioSource;
+    public bool loop;
+    public bool paused = false;
+    public float volume;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,23 +19,49 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // add reaction to pause menu
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = !paused;
+            if (paused && loop)
+            {
+                LowerVolume();
+            }
+
+            else if (!paused && loop)
+            {
+                ResetVolume();
+            }
+            else if (paused && !loop)
+            {
+                audioSource.Pause();
+            }
+            else if (!paused && !loop)
+            {
+                audioSource.UnPause();
+            }
+        }
     }
 
-    public void PlaySound(int soundID, bool loop)
+    public void PlaySound()
     {
-        audio.volume = 1f;
-        //audio.clip = collisionSoundEffect;
-        audio.Play();
+        print("Playing sound");
+        int l = audio.Length;
+        // play one of the sounds randomly
+        int index = Random.Range(0, l - 1);
+        audioSource.loop = loop;
+        audioSource.volume = 1f;
+        audioSource.clip = audio[index];
+        audioSource.Play();
     }
 
     public void LowerVolume()
     {
-        audio.volume = 1f;
+        audioSource.volume = 0.5f*volume;
     }
 
     public void ResetVolume()
     {
-        audio.volume = 1f;
+        audioSource.volume = volume;
     }
 }
