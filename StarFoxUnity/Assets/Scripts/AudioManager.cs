@@ -54,6 +54,11 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public void StopSound()
+    {
+        audioSource.Stop();
+    }
+
     public void LowerVolume()
     {
         audioSource.volume = 0.5f*volume;
