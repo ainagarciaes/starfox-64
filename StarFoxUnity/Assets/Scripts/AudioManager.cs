@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip[] audio;
+    public new AudioClip[] audio;
     AudioSource audioSource;
     public bool loop;
     public bool paused = false;
@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound()
     {
+        print("Playing sound");
         int l = audio.Length;
         // play one of the sounds randomly
         int index = Random.Range(0, l - 1);
