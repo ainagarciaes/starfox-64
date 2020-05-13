@@ -11681,11 +11681,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 9157848213931231780, guid: 9334f4649c8695c4f9fdbbc589c5e1fd,
-        type: 3}
-      propertyPath: volume
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9334f4649c8695c4f9fdbbc589c5e1fd, type: 3}
 --- !u!1 &1877465549
