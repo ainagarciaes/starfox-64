@@ -143,13 +143,9 @@ public class FollowScope : MonoBehaviour
     {
         if (other.CompareTag("EnemyBullet"))
         {
-            Destroy(other.gameObject);
             hits++;
             LevelManager.Instance.UpdateHitPoints(1, 0);
-            var hit = Instantiate(enemyHit, other.transform.position, Quaternion.identity);
-            hit.transform.parent = gameObject.transform;
-
-            //Destroy(gameObject);
+            other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
         }
 
         if (other.CompareTag("CollidableEnemy"))

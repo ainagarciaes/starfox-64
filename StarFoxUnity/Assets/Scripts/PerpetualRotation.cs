@@ -26,7 +26,7 @@ public class PerpetualRotation : MonoBehaviour
     {
         if (other.CompareTag("PlayerBullet"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
             Destroy(gameObject);
         }
     }

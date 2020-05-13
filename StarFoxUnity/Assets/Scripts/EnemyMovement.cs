@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] Transform[] pathTarget;
     [SerializeField] GameObject[] weapons;
     [SerializeField] GameObject muzzle;
-    [SerializeField] GameObject playerHit;
     [SerializeField] GameObject bullet;
     GameObject player;
     private const int spray = 2;
@@ -110,9 +109,7 @@ public class EnemyMovement : MonoBehaviour
         if (!other.CompareTag("EnemyBullet"))
             if (other.CompareTag("PlayerBullet"))
             {
-                if (playerHit != null)
-                    Instantiate(playerHit,other.transform.position, Quaternion.identity);
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
                 Destroy(gameObject);
             }
     }

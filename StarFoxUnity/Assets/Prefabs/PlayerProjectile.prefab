@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5fe7b7fd2febdb418afd52f70ea98bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit: {fileID: 3022899725138503779, guid: c68a9abea2d8d48418de0c3aeb375f75, type: 3}
   direction: {x: 0, y: 0, z: 0}
   speed: 350
   lifetime: 0

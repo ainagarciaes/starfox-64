@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5fe7b7fd2febdb418afd52f70ea98bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHit: {fileID: 3022899725138503779, guid: a1229ec9b8bfbd04aaf87f23b314d137,
-    type: 3}
+  hit: {fileID: 3022899725138503779, guid: a1229ec9b8bfbd04aaf87f23b314d137, type: 3}
   direction: {x: 0, y: 0, z: 0}
   speed: 300
   lifetime: 0
