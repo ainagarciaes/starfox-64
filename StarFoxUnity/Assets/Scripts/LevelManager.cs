@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
         GameOverMenu.SetActive(false);
         GameWinMenu.SetActive(false);
         GameGUI.SetActive(true);
+        GameGUI.GetComponent<ToggleGameModeGUI>().ToggleGodMode(GodMode);
         DamageGUI.SetActive(true);
         am = Audio.GetComponent<AudioManager>();
         am.PlaySound();
@@ -69,6 +70,7 @@ public class LevelManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.G))
             {
                 GodMode = !GodMode;
+                GameGUI.GetComponent<ToggleGameModeGUI>().ToggleGodMode(GodMode);
             }
         }
         // GO TO PAUSE
