@@ -20,6 +20,7 @@ public class FollowScope : MonoBehaviour
     private float bias;
 
     private const float rollAcc = 10f;
+    float cooldown;
     public float duration;
     private bool rollInitialized;
     private float rollingSpeed;
@@ -29,6 +30,7 @@ public class FollowScope : MonoBehaviour
     {
         duration = 0;
         hits = 0;
+        cooldown = 0;
     }
 
     // Update is called once per frame
@@ -50,7 +52,7 @@ public class FollowScope : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                rotating = true;               
+                rotating = true;
                 rollInitialized = false;
                 rotation_side = 1;
                 bias = 1;
@@ -61,36 +63,29 @@ public class FollowScope : MonoBehaviour
             {
                 DoABarrelRoll();
                 duration += Time.deltaTime;
+                if (duration > 0.15f) DoABarrelRollLatMovement();
             }
             else
             {
-                //print(duration);
+                print(duration);
 
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
                 transform.LookAt(lookAtObject.transform.position);
-                transform.RotateAround(transform.position, transform.forward, 50 * (viewportPos.x - viewportAim.x));
+                transform.RotateAround(transform.position, transform.forward, 50 *(1-cooldown) *(viewportPos.x - viewportAim.x));
                 distance = viewportAim - viewportPos;
-                transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0) * Time.deltaTime);
+                transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0)*(1 - cooldown) * Time.deltaTime);
+                if (cooldown > 0)
+                    cooldown -= Time.deltaTime;
+                else cooldown = 0;
             }
         }
     }
-
-    private void rotate()
+    private void DoABarrelRollLatMovement()
     {
-        rotation_step += 1;
-        float diff = Mathf.Sin(Mathf.PI * rotation_step * Time.deltaTime);
-
-        if (diff <= 0)
-        {
-            print("stop rotation");
-            rotating = false;
-            offset = 0;
-            return;
-        }
-        offset = diff * 360 + offset_ini;
+        viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + Vector3.right * 5 * rotation_side * duration * duration * Time.deltaTime);
     }
-
     private void DoABarrelRoll()
     {
         if (rollInitialized)
@@ -101,10 +96,10 @@ public class FollowScope : MonoBehaviour
                 rollingSpeed -= Time.deltaTime * rollingSpeed * rollAcc;
             else
             {
-                print("stop rotation");
                 rotating = false;
                 rollingSpeed = 0;
                 offset = 0;
+                cooldown = 0.7f;
                 return;
             }
             currentRotation += rollingSpeed;
@@ -117,8 +112,8 @@ public class FollowScope : MonoBehaviour
     {
         transform.LookAt(Camera.main.ViewportToWorldPoint(
                             new Vector3((1 - bias) * viewportPos.x + bias * viewportAim.x,
-                                        (1 - bias) * viewportPos.y + bias * viewportAim.y, 
-                                        viewportAim.z)), 
+                                        (1 - bias) * viewportPos.y + bias * viewportAim.y,
+                                        viewportAim.z)),
                         transform.up);
         if (bias > 0.05f)
             bias *= Mathf.Pow(0.9f, 500 * Time.deltaTime);

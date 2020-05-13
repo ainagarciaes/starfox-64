@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
+public class SmartProjectileMovement : MonoBehaviour
 {
     [SerializeField] GameObject hit;
     public Vector3 direction;
@@ -13,7 +13,7 @@ public class ProjectileMovement : MonoBehaviour
     {
         lifetime = 0;
         direction = transform.forward;
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame

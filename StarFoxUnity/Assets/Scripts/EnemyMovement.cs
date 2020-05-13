@@ -33,15 +33,15 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
 
-        transform.LookAt(2 * transform.position - Camera.main.transform.position);
-        transform.rotation = Quaternion.Euler(0, 180, 0);
+
+
         if (current >= 0 && (current + 1 < pathTarget.Length) && ChangeToNext())
         {
             current++;
             hasChanged = true;
         }
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
-        else if (OnScreen())
+        else if (OnScreen() && current >1)
         {
             GameObject newFlash = Instantiate(muzzle, weapons[weaponIndex].transform.position, Quaternion.identity);
             newFlash.transform.parent = gameObject.transform;
@@ -73,6 +73,10 @@ public class EnemyMovement : MonoBehaviour
         float velocity = Vector3.Distance(Vector3.zero, rb.velocity);
         if (current >= 0)
         {
+            Vector3 lookDir = rb.velocity;
+            Quaternion lookRotation = Quaternion.LookRotation(lookDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 1f);
+
             rb.AddForce((pathTarget[current].position - transform.position));
             if (velocity < 20)
                 rb.AddForce((pathTarget[current].position - transform.position).normalized);
