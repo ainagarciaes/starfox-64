@@ -5,6 +5,7 @@ using UnityEngine;
 public class PerpetualRotation : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject explosion;
     Vector3 axis;
     int dir;
     int speed;
@@ -27,6 +28,8 @@ public class PerpetualRotation : MonoBehaviour
         if (other.CompareTag("PlayerBullet"))
         {
             other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+            if (explosion != null)
+                Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
