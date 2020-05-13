@@ -49,9 +49,14 @@ public class AudioManager : MonoBehaviour
         int l = audio.Length;
         int index = Random.Range(0, l);
         audioSource.loop = loop;
-        audioSource.volume = 1f;
+        audioSource.volume = volume;
         audioSource.clip = audio[index];
         audioSource.Play();
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 
     public void LowerVolume()
