@@ -127,6 +127,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 196713789}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &15680435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15680434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &15680436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +152,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c098ddc609e144c964496483fbca76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partToRotate: {fileID: 0}
+--- !u!65 &15680437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15680434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &58761619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7307543647604625802, guid: 92c3ef2c2211de443965c0b4d409aba1,
