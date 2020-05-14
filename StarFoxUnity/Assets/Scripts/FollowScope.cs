@@ -67,8 +67,6 @@ public class FollowScope : MonoBehaviour
             }
             else
             {
-                print(duration);
-
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
                 transform.LookAt(lookAtObject.transform.position);
@@ -152,19 +150,20 @@ public class FollowScope : MonoBehaviour
         if (other.CompareTag("DamagePerSecond"))
         {
             LevelManager.Instance.SetBurning(true);
+            other.gameObject.transform.parent.transform.Find("Audio").GetComponent<AudioManager>().RiseVolume();
         }
         if (other.CompareTag("ToNextLevel"))
         {
-            print("COLLIDES");
             LevelManager.Instance.GameWin();
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("DamagePerSecond"))
         {
-            LevelManager.Instance.SetBurning(false);
+            LevelManager.Instance.SetBurning(false);  
+            other.gameObject.transform.parent.transform.Find("Audio").GetComponent<AudioManager>().ResetVolume();
         }
     }
 }
