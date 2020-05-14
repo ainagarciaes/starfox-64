@@ -72,9 +72,9 @@ public class FollowScope : MonoBehaviour
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
                 transform.LookAt(lookAtObject.transform.position);
-                transform.RotateAround(transform.position, transform.forward, 50 *(1-cooldown) *(viewportPos.x - viewportAim.x));
+                transform.RotateAround(transform.position, transform.forward, 50 * (1 - cooldown) * (viewportPos.x - viewportAim.x));
                 distance = viewportAim - viewportPos;
-                transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0)*(1 - cooldown) * Time.deltaTime);
+                transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0) * (1 - cooldown) * Time.deltaTime);
                 if (cooldown > 0)
                     cooldown -= Time.deltaTime;
                 else cooldown = 0;
@@ -140,7 +140,8 @@ public class FollowScope : MonoBehaviour
         {
             hits++;
             LevelManager.Instance.UpdateHitPoints(1, 0);
-            other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+            if (other.gameObject.GetComponent<ProjectileMovement>() != null)
+                other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
         }
 
         if (other.CompareTag("CollidableEnemy"))
