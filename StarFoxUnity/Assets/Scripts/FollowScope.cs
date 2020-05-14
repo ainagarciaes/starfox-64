@@ -67,8 +67,6 @@ public class FollowScope : MonoBehaviour
             }
             else
             {
-                print(duration);
-
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
                 transform.LookAt(lookAtObject.transform.position);
@@ -146,6 +144,8 @@ public class FollowScope : MonoBehaviour
 
         if (other.CompareTag("CollidableEnemy"))
         {
+            print(other.gameObject.name);
+            other.gameObject.transform.Find("Collisions").GetComponent<AudioManager>().PlaySound();
             LevelManager.Instance.UpdateHitPoints(20, 1);
             Destroy(other.gameObject);
         }
