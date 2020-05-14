@@ -7,7 +7,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] audio;
     AudioSource audioSource;
     public bool loop;
-    public bool paused = false;
+    public bool pause_lower;
+    bool paused = false;
     public float volume;
 
     // Start is called before the first frame update
@@ -23,20 +24,20 @@ public class AudioManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
-            if (paused && loop)
+            if (paused && pause_lower)
             {
                 LowerVolume();
             }
 
-            else if (!paused && loop)
+            else if (!paused && pause_lower)
             {
                 ResetVolume();
             }
-            else if (paused && !loop)
+            else if (paused && !pause_lower)
             {
                 audioSource.Pause();
             }
-            else if (!paused && !loop)
+            else if (!paused && !pause_lower)
             {
                 audioSource.UnPause();
             }

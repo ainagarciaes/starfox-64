@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio:
-  - {fileID: 8300000, guid: 882c18fa900b9b244952ab4b689596c6, type: 3}
+  - {fileID: 8300000, guid: bfcd6c95eb0b8b74b8d860cce71c854d, type: 3}
   loop: 1
-  paused: 0
+  pause_lower: 1
   volume: 0.4
