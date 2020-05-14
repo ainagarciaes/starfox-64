@@ -69,4 +69,9 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.volume = volume;
     }
+
+    public void RiseVolume()
+    {
+        audioSource.volume = 4 * volume;
+    }
 }

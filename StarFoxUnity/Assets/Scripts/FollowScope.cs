@@ -152,6 +152,7 @@ public class FollowScope : MonoBehaviour
         if (other.CompareTag("DamagePerSecond"))
         {
             LevelManager.Instance.SetBurning(true);
+            other.gameObject.transform.parent.transform.Find("Audio").GetComponent<AudioManager>().RiseVolume();
         }
         if (other.CompareTag("ToNextLevel"))
         {
@@ -165,6 +166,7 @@ public class FollowScope : MonoBehaviour
         if (other.CompareTag("DamagePerSecond"))
         {
             LevelManager.Instance.SetBurning(false);
+            other.gameObject.transform.parent.transform.Find("Audio").GetComponent<AudioManager>().ResetVolume();
         }
     }
 }
