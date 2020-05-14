@@ -7628,31 +7628,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 712267449}
     m_Modifications:
-    - target: {fileID: 2762095946275642697, guid: fa072eea7eed7ae49970a995c8036730,
-        type: 3}
-      propertyPath: audio.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762095946275642697, guid: fa072eea7eed7ae49970a995c8036730,
-        type: 3}
-      propertyPath: audio.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 33f0eeed49128a6408612d3dc67b71e4, type: 3}
-    - target: {fileID: 2762095946275642697, guid: fa072eea7eed7ae49970a995c8036730,
-        type: 3}
-      propertyPath: audio.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 22e04cbe8ba8f1b41bb2b3ef6ac0923c, type: 3}
-    - target: {fileID: 2762095946275642697, guid: fa072eea7eed7ae49970a995c8036730,
-        type: 3}
-      propertyPath: volume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762095946275642697, guid: fa072eea7eed7ae49970a995c8036730,
-        type: 3}
-      propertyPath: audio.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: f3e046fd652f6de40868a09dab74059e, type: 3}
     - target: {fileID: 8927096921750553192, guid: fa072eea7eed7ae49970a995c8036730,
         type: 3}
       propertyPath: m_Name
