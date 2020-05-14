@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &405444521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84209286038142843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59f48f1db730e943ad19e8956767df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1732969295805262058
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +290,7 @@ GameObject:
   - component: {fileID: 2183431244200640256}
   m_Layer: 0
   m_Name: BurningStar
-  m_TagString: Untagged
+  m_TagString: DamagePerSecond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9968,7 +9980,7 @@ PrefabInstance:
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
       propertyPath: volume
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
@@ -9977,6 +9989,12 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d881f41a09bca0447852c4f1f5f17191, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b1edbbc6772984e9a8fdc4658097fe, type: 3}
+--- !u!1 &84209286038142843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5857837423555810958, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 5791651110932392437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3190902625182225038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8946487486642011003, guid: f8b1edbbc6772984e9a8fdc4658097fe,
