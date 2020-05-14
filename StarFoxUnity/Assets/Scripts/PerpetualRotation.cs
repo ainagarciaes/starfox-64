@@ -28,9 +28,17 @@ public class PerpetualRotation : MonoBehaviour
         if (other.CompareTag("PlayerBullet"))
         {
             other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
-            if (explosion != null)
-                Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Explode();
         }
+    }
+
+    public void Explode()
+    {
+        if (explosion != null)
+            Instantiate(explosion, transform.position, Quaternion.identity);
+        gameObject.transform.GetComponent<MeshCollider>().enabled = false;
+        gameObject.transform.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.transform.Find("Collisions").GetComponent<AudioManager>().PlaySound();
+        Destroy(gameObject,3);
     }
 }

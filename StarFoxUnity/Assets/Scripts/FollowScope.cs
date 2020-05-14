@@ -145,9 +145,8 @@ public class FollowScope : MonoBehaviour
         if (other.CompareTag("CollidableEnemy"))
         {
             print(other.gameObject.name);
-            other.gameObject.transform.Find("Collisions").GetComponent<AudioManager>().PlaySound();
             LevelManager.Instance.UpdateHitPoints(20, 1);
-            Destroy(other.gameObject);
+            other.gameObject.transform.GetComponent<PerpetualRotation>().Explode();
         }
 
         if (other.CompareTag("DamagePerSecond"))
