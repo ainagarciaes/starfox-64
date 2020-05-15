@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] GameObject[] weapons;
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject explosion;
     GameObject player;
     private const int spray = 2;
     private const float spraySpan = 0.3f, cooldown = 0.7f;
@@ -41,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
             hasChanged = true;
         }
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
-        else if (OnScreen() && current >1)
+        else if (OnScreen() && current > 1)
         {
             GameObject newFlash = Instantiate(muzzle, weapons[weaponIndex].transform.position, Quaternion.identity);
             newFlash.transform.parent = gameObject.transform;
@@ -115,7 +116,9 @@ public class EnemyMovement : MonoBehaviour
             {
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
                 LevelManager.Instance.UpdateScore(5);
+                if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
     }
+
 }
