@@ -114,6 +114,7 @@ public class EnemyMovement : MonoBehaviour
             if (other.CompareTag("PlayerBullet"))
             {
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+                LevelManager.Instance.UpdateScore(5);
                 Destroy(gameObject);
             }
     }

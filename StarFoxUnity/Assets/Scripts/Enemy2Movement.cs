@@ -9,10 +9,10 @@ public class Enemy2Movement : MonoBehaviour
     [SerializeField] GameObject bullet;
     GameObject player;
     private const int spray = 2;
-    private const float spraySpan = 0.5f, cooldown =5f;
+    private const float spraySpan = 0.5f, cooldown = 5f;
     int weaponIndex, currentSpray;
     float waitToShoot;
-
+    int hits;
     public Vector3 viewportPos;
 
 
@@ -21,6 +21,7 @@ public class Enemy2Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hits = 15;
         weaponIndex = 0;
         currentSpray = spray;
         waitToShoot = 0;
@@ -31,7 +32,7 @@ public class Enemy2Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        transform.position += transform.forward * Time.deltaTime * 20;
 
 
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
@@ -58,11 +59,6 @@ public class Enemy2Movement : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     private bool OnScreen()
     {
         viewportPos = Camera.main.WorldToViewportPoint(transform.position);
@@ -80,7 +76,13 @@ public class Enemy2Movement : MonoBehaviour
             if (other.CompareTag("PlayerBullet"))
             {
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
-                Destroy(gameObject);
+                --hits;
+                LevelManager.Instance.UpdateScore(1);
+                if (hits <= 0)
+                {
+                    LevelManager.Instance.UpdateScore(30);
+                    Destroy(gameObject);
+                }
             }
     }
 }

@@ -8,6 +8,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject scope;
     [SerializeField] GameObject[] weapons;
+    AudioManager AudioMngr;
+
     float rate = 12f;
     float cooldown = 0.5f;
     int cooldownrate = 3;
@@ -16,6 +18,10 @@ public class Shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioMngr = gameObject.transform.Find("Audio").GetComponent<AudioManager>();
+
+
+
         next = 0;
         nshot = 0;
     }
@@ -30,6 +36,7 @@ public class Shoot : MonoBehaviour
             {
                 if (next <= 0)
                 {
+                    AudioMngr.PlaySound();
                     nshot++;
                     GameObject newFlash = Instantiate(muzzle, weapons[0].transform.position, Quaternion.identity);
                     newFlash.transform.parent = gameObject.transform;
@@ -45,7 +52,7 @@ public class Shoot : MonoBehaviour
                         next = cooldown;
                         nshot = 0;
                     }
-                    else next = 1.0f / rate ;
+                    else next = 1.0f / rate;
                 }
                 else
                 {
