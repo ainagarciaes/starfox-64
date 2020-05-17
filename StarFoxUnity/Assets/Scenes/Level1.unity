@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.8196245, g: 0.8396226, b: 0.4237718, a: 1}
+  m_AmbientSkyColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.7
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: cbcb829b7b88c0b4bbf5d6e88eb31809, type: 2}
   m_HaloStrength: 0.5
@@ -34,11 +34,11 @@ RenderSettings:
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 2048
-  m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionBounces: 4
+  m_ReflectionIntensity: 0.264
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.22385061, g: 0.093965106, b: 0.4031015, a: 1}
+  m_IndirectSpecularColor: {r: 0.10509334, g: 0.03107875, b: 0.2080046, a: 0.264}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2735,6 +2735,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927096922412710318, guid: fa072eea7eed7ae49970a995c8036730,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927096922412710318, guid: fa072eea7eed7ae49970a995c8036730,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.99139196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927096922412710318, guid: fa072eea7eed7ae49970a995c8036730,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9103774
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa072eea7eed7ae49970a995c8036730, type: 3}
