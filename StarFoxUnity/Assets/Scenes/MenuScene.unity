@@ -420,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 5857837423555810958, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
       propertyPath: m_Name
-      value: Audio
+      value: AudioClicks
       objectReference: {fileID: 0}
     - target: {fileID: 8946487486642011003, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
@@ -477,6 +477,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 10e3069c3f510744181f100df1f19219, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b9245c3416dd0a40b751135a925b89c, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1212b73faed89f642a7efeba4d70b52a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b1edbbc6772984e9a8fdc4658097fe, type: 3}
 --- !u!4 &293977980 stripped
@@ -1970,7 +1985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1543913814
 RectTransform:
   m_ObjectHideFlags: 0
