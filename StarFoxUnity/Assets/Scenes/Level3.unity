@@ -1797,7 +1797,7 @@ GameObject:
   - component: {fileID: 1077527415}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: TerrainCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967294

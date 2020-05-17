@@ -9,6 +9,7 @@ TagManager:
   - CollidableEnemy
   - DamagePerSecond
   - ToNextLevel
+  - TerrainCollider
   layers:
   - Default
   - TransparentFX
