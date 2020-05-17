@@ -117,6 +117,8 @@ public class LevelManager : MonoBehaviour
         {
             print("taking damage equal to: " + damage);
             hitpoints -= damage;
+            shakeCamera sc = this.GetComponent<shakeCamera>();
+            sc.Shake();
             if (hitpoints <= 0)
             {
                 healthBar.fillAmount = 0;
