@@ -11,8 +11,8 @@ public class PaseMenuController : MonoBehaviour
 
     void Start()
     {
-        menu = this.gameObject.transform.GetChild(0);
-        instr = this.gameObject.transform.GetChild(1);
+        menu = this.gameObject.transform.GetChild(1);
+        instr = this.gameObject.transform.GetChild(2);
         ToPauseMenu();
     }
 
