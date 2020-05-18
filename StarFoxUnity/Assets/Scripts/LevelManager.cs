@@ -9,6 +9,10 @@ public class LevelManager : MonoBehaviour
 {
     public CameraShake cs;
     private static LevelManager _instance;
+    GameObject audioWin;
+    bool audioWinPlayed = false;
+    GameObject audioLose;
+    bool audioLosePlayed = false;
 
     public static LevelManager Instance { get { return _instance; } }
 
@@ -57,6 +61,8 @@ public class LevelManager : MonoBehaviour
         DamageGUI.SetActive(true);
         am = Audio.GetComponent<AudioManager>();
         am.PlaySound();
+        audioWin = GameObject.Find("AudioWin");
+        audioLose = GameObject.Find("AudioLose");
     }
 
     // Update is called once per frame
@@ -149,19 +155,26 @@ public class LevelManager : MonoBehaviour
 
     void GameOver()
     {
-        IsGameOver = true;
-        PauseMenu.SetActive(false);
-        GameOverMenu.SetActive(true);
-        GameWinMenu.SetActive(false);
-        GameGUI.SetActive(false);
-        DamageGUI.SetActive(false);
-        Invoke("RestartLevel", 3);
+        if (!IsGameOver)
+        {
+            if (!audioLosePlayed)
+                audioLose.GetComponent<AudioManager>().PlaySound();
+            IsGameOver = true;
+            PauseMenu.SetActive(false);
+            GameOverMenu.SetActive(true);
+            GameWinMenu.SetActive(false);
+            GameGUI.SetActive(false);
+            DamageGUI.SetActive(false);
+            Invoke("RestartLevel", 3);
+        }
     }
 
     public void GameWin()
     {
         if (!IsGameOver)
         {
+            if (!audioWinPlayed)
+                audioWin.GetComponent<AudioManager>().PlaySound();
             PauseMenu.SetActive(false);
             GameOverMenu.SetActive(false);
             GameWinMenu.SetActive(true);
