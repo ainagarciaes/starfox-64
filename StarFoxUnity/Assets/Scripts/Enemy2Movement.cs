@@ -7,6 +7,7 @@ public class Enemy2Movement : MonoBehaviour
     [SerializeField] GameObject[] weapons;
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject shieldObj;
     GameObject player;
     private const int spray = 2;
     private const float spraySpan = 0.5f, cooldown = 5f;
@@ -14,13 +15,17 @@ public class Enemy2Movement : MonoBehaviour
     float waitToShoot;
     int hits;
     public Vector3 viewportPos;
-
-
+    float floatingAround;
+    int shieldHits;
+    public bool shield;
     bool hasChanged = false;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        shield = false;
+        floatingAround = 0;
+        shieldHits = 10;
         hits = 15;
         weaponIndex = 0;
         currentSpray = spray;
@@ -32,6 +37,10 @@ public class Enemy2Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shieldObj.SetActive(shield);
+        
+        floatingAround += Time.deltaTime;
+        transform.position += Vector3.up * Mathf.Sin(floatingAround) * Time.deltaTime*3;
         transform.position += transform.forward * Time.deltaTime * 20;
 
 
