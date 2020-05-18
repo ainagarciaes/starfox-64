@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public CameraShake cs;
     private static LevelManager _instance;
 
     public static LevelManager Instance { get { return _instance; } }
@@ -117,20 +118,21 @@ public class LevelManager : MonoBehaviour
         {
             print("taking damage equal to: " + damage);
             hitpoints -= damage;
-            shakeCamera sc = this.GetComponent<shakeCamera>();
-            sc.Shake();
+            //shakeCamera sc = this.GetComponent<shakeCamera>();
+            //sc.Shake();
+            StartCoroutine(cs.Shake(0.5f, 0.1f));
             if (hitpoints <= 0)
             {
                 healthBar.fillAmount = 0;
                 if (!GodMode)
-                {             
+                {
                     GameOver();
                 }
             }
             else
             {
                 DamageGUI.GetComponent<DamageAnim>().StartDamageAnimation();
-                healthBar.fillAmount = (float) hitpoints / max_hitpoints;
+                healthBar.fillAmount = (float)hitpoints / max_hitpoints;
             }
         }
     }
