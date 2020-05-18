@@ -14,7 +14,11 @@ public class Turbo : MonoBehaviour
         {
             if (cs.m_Speed < maxSpeed) cs.m_Speed += cs.m_Speed * Time.deltaTime;
         }
-        else if (cs.m_Speed < regularSpeed) cs.m_Speed = regularSpeed;
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (cs.m_Speed > minSpeed) cs.m_Speed -= cs.m_Speed * Time.deltaTime;
+        }
+        else if (cs.m_Speed < regularSpeed) cs.m_Speed += cs.m_Speed * Time.deltaTime;
         else cs.m_Speed -= cs.m_Speed * Time.deltaTime;
     }
 
