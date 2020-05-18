@@ -571,6 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 712267449}
   - component: {fileID: 712267448}
+  - component: {fileID: 712267450}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -610,6 +611,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712267450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712267447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ae89bccdaf3604c9243918d69f7751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTurbo: 0
+  cs: {fileID: 712267448}
 --- !u!1001 &786538097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2172,7 +2187,7 @@ PrefabInstance:
     - target: {fileID: 1006065726732165590, guid: 58f2b40d070d5b54b83bf351431a24e8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.8
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1006065726732165590, guid: 58f2b40d070d5b54b83bf351431a24e8,
         type: 3}
@@ -2224,40 +2239,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2
       objectReference: {fileID: 0}
-    - target: {fileID: 1006065726732165591, guid: 58f2b40d070d5b54b83bf351431a24e8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507270903570385324, guid: 58f2b40d070d5b54b83bf351431a24e8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6587841063098505957, guid: 58f2b40d070d5b54b83bf351431a24e8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774400442256201228, guid: 58f2b40d070d5b54b83bf351431a24e8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7461886783661567928, guid: 58f2b40d070d5b54b83bf351431a24e8,
         type: 3}
-      propertyPath: muzzle
-      value: 
-      objectReference: {fileID: 3022899725138503779, guid: bd9998f95386cb74dadb110172857a97,
-        type: 3}
-    - target: {fileID: 9012612778653890087, guid: 58f2b40d070d5b54b83bf351431a24e8,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 9012612778653890087, guid: 58f2b40d070d5b54b83bf351431a24e8,
-        type: 3}
-      propertyPath: prewarm
+      propertyPath: shield
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2389,11 +2373,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7615669909473272548, guid: 9334f4649c8695c4f9fdbbc589c5e1fd,
-        type: 3}
-      propertyPath: mainCamera
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9334f4649c8695c4f9fdbbc589c5e1fd, type: 3}

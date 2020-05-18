@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1573838381100054231}
   - component: {fileID: 4322759268261690806}
-  - component: {fileID: 7615669909473272548}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -58,19 +57,6 @@ MonoBehaviour:
   DamageGUI: {fileID: 6275135730628292563}
   healthBar: {fileID: 3264410799579928852}
   Audio: {fileID: 5915848085918680896}
---- !u!114 &7615669909473272548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6513113052774374351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52f556c2cec5e2419dcd53aaaca6148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!1001 &239368509536276942
 PrefabInstance:
   m_ObjectHideFlags: 0

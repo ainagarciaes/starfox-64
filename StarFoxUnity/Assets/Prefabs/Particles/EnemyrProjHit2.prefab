@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3022899725138503776}
   m_Layer: 0
-  m_Name: EnemyrProjHit
+  m_Name: EnemyrProjHit2
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5066,8 +5066,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.9529412, g: 0, b: 0.52156866, a: 1}
-      maxColor: {r: 1, g: 0.023529412, b: 0.35686275, a: 1}
+      minColor: {r: 0.9529412, g: 0, b: 0.10404073, a: 1}
+      maxColor: {r: 1, g: 0.39558676, b: 0.02352941, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5129,7 +5129,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9878,8 +9878,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.9529412, g: 0, b: 0.52156866, a: 1}
-      maxColor: {r: 1, g: 0.023529412, b: 0.35686275, a: 1}
+      minColor: {r: 0.9529412, g: 0, b: 0.05372981, a: 1}
+      maxColor: {r: 1, g: 0.33522534, b: 0.02352941, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9941,8 +9941,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.7
-      minScalar: 1
+      scalar: 2.5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:

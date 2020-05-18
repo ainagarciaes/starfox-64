@@ -8,10 +8,12 @@ public class Enemy2Movement : MonoBehaviour
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shieldObj;
+    [SerializeField] AudioManager audio;
     GameObject player;
-    private const int spray = 2;
-    private const float spraySpan = 0.5f, cooldown = 5f;
-    int weaponIndex, currentSpray;
+    private const int maxShield = 40;
+    private const float spraySpan = 1.5f;
+
+    int weaponIndex;
     float waitToShoot;
     int hits;
     public Vector3 viewportPos;
@@ -23,12 +25,11 @@ public class Enemy2Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shield = false;
+        shield = true;
         floatingAround = 0;
         shieldHits = 10;
         hits = 15;
         weaponIndex = 0;
-        currentSpray = spray;
         waitToShoot = 0;
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -38,14 +39,14 @@ public class Enemy2Movement : MonoBehaviour
     void Update()
     {
         shieldObj.SetActive(shield);
-        
+
         floatingAround += Time.deltaTime;
-        transform.position += Vector3.up * Mathf.Sin(floatingAround) * Time.deltaTime*3;
-        transform.position += transform.forward * Time.deltaTime * 20;
+        transform.position += Vector3.up * Mathf.Sin(floatingAround) * Time.deltaTime * 3;
+        transform.position += transform.forward * Time.deltaTime * 5;
 
 
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
-        else if (OnScreen())
+        else if (OnScreen() && shield)
         {
             if (muzzle != null)
             {
@@ -55,15 +56,9 @@ public class Enemy2Movement : MonoBehaviour
             }
             GameObject newbullet = Instantiate(bullet, weapons[weaponIndex].transform.position, Quaternion.identity);
             newbullet.transform.LookAt(player.transform.position);
-            currentSpray--;
             weaponIndex++;
             weaponIndex %= 2;
-            if (currentSpray == 0)
-            {
-                waitToShoot = cooldown;
-                currentSpray = spray;
-            }
-            else waitToShoot = spraySpan;
+            waitToShoot = spraySpan;
         }
 
     }
@@ -83,15 +78,24 @@ public class Enemy2Movement : MonoBehaviour
     {
         if (!other.CompareTag("EnemyBullet"))
             if (other.CompareTag("PlayerBullet"))
-            {
-                other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
-                --hits;
-                LevelManager.Instance.UpdateScore(1);
-                if (hits <= 0)
+                if (!shield)
                 {
-                    LevelManager.Instance.UpdateScore(30);
-                    Destroy(gameObject);
+                    --hits;
+                    LevelManager.Instance.UpdateScore(1);
+                    if (hits <= 0)
+                    {
+                        LevelManager.Instance.UpdateScore(30);
+                        Destroy(gameObject);
+                    }
+
                 }
-            }
+                else
+                {
+                    ++shieldHits;
+                    other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+                    audio.PlaySound();
+                    if (shieldHits >= maxShield)
+                        shield = false;
+                }
     }
 }

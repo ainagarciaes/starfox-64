@@ -140,6 +140,10 @@ public class FollowScope : MonoBehaviour
             LevelManager.Instance.UpdateHitPoints(1, 0);
             if (other.gameObject.GetComponent<ProjectileMovement>() != null)
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+            else if (other.gameObject.GetComponent<SmartProjectileMovement>() != null)
+            {
+                other.gameObject.GetComponent<SmartProjectileMovement>().HitnDestroy();
+            }
         }
 
         if (other.CompareTag("CollidableEnemy"))

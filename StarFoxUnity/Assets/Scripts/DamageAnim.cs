@@ -37,6 +37,6 @@ public class DamageAnim : MonoBehaviour
 
     public void StartDamageAnimation()
     {
-        timeleft = 1;
+        timeleft = 0.5f;
     }
 }

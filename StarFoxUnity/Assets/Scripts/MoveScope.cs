@@ -52,16 +52,16 @@ public class MoveScope : MonoBehaviour
 
     private void CenterScopeLocation()
     {
-        distance = viewportAim - viewportPos;
+        //distance = viewportAim - viewportPos;
 
-        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y + 0.1f, 0) * 25 * Time.deltaTime);
+        //transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y + 0.1f, 0) * 25 * Time.deltaTime);
 
-        if (bias > 0.05f)
-            bias *= Mathf.Pow(0.999f, Time.deltaTime);
-        else
-        {
-            bias = 0;
-        }
+        //if (bias > 0.05f)
+        //    bias *= Mathf.Pow(0.999f, Time.deltaTime);
+        //else
+        //{
+        //    bias = 0;
+        //}
     }
     private void TweenScopeLocation()
     {
