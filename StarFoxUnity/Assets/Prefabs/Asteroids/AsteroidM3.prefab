@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad87ad7393dccb6488f88c65d10af535, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   explosion: {fileID: 7867792242415607296, guid: 7324a373c665f184a93dc6f0c4a30df2,
     type: 3}
 --- !u!54 &1392302815
@@ -207,6 +207,31 @@ PrefabInstance:
     - target: {fileID: 8946487486642011003, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f3e046fd652f6de40868a09dab74059e, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 33f0eeed49128a6408612d3dc67b71e4, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 22e04cbe8ba8f1b41bb2b3ef6ac0923c, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

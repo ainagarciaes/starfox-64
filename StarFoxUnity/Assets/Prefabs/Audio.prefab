@@ -43,10 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea8a8e5ece01a44fa05e23ffc75bf28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio:
-  - {fileID: 8300000, guid: 10e3069c3f510744181f100df1f19219, type: 3}
-  - {fileID: 8300000, guid: 3b9245c3416dd0a40b751135a925b89c, type: 3}
-  - {fileID: 8300000, guid: 1212b73faed89f642a7efeba4d70b52a, type: 3}
+  audio: []
   loop: 0
   pause_lower: 0
   volume: 0.6

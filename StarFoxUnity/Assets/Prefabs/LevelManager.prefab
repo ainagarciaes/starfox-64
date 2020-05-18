@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1e6e31536ea98479d9c725df55f5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cs: {fileID: 0}
   PauseMenu: {fileID: 4468294683894815666}
   GameOverMenu: {fileID: 2500744738904850452}
   GameWinMenu: {fileID: 6407388450102057009}
@@ -576,6 +577,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1573838381100054231}
     m_Modifications:
+    - target: {fileID: 2309714579640575476, guid: 3e13369776460894790b7788898bca15,
+        type: 3}
+      propertyPath: audio.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309714579640575476, guid: 3e13369776460894790b7788898bca15,
+        type: 3}
+      propertyPath: audio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 10e3069c3f510744181f100df1f19219, type: 3}
+    - target: {fileID: 2309714579640575476, guid: 3e13369776460894790b7788898bca15,
+        type: 3}
+      propertyPath: audio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b9245c3416dd0a40b751135a925b89c, type: 3}
+    - target: {fileID: 2309714579640575476, guid: 3e13369776460894790b7788898bca15,
+        type: 3}
+      propertyPath: audio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1212b73faed89f642a7efeba4d70b52a, type: 3}
     - target: {fileID: 2845287628952330654, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_Name
