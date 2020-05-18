@@ -9,6 +9,7 @@ public class MenuFlow : MonoBehaviour
     Transform title;
     GameObject audioMenu;
     GameObject audioTitle;
+    GameObject audioStart;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class MenuFlow : MonoBehaviour
         menu = this.gameObject.transform.GetChild(1);
         audioMenu = GameObject.Find("AudioMenu");
         audioTitle = GameObject.Find("AudioTitle");
+        audioStart = GameObject.Find("AudioStart");
+
         title.gameObject.SetActive(true);
         menu.gameObject.SetActive(false);
 
@@ -29,7 +32,7 @@ public class MenuFlow : MonoBehaviour
         {
             audioTitle.GetComponent<AudioManager>().StopSound();
             audioMenu.GetComponent<AudioManager>().PlaySound();
-
+            audioStart.GetComponent<AudioManager>().PlaySound();
             title.gameObject.SetActive(false);
             menu.gameObject.SetActive(true);
             Cursor.visible = true;
