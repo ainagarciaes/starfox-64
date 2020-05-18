@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio:
-  - {fileID: 8300000, guid: f3e046fd652f6de40868a09dab74059e, type: 3}
-  - {fileID: 8300000, guid: 33f0eeed49128a6408612d3dc67b71e4, type: 3}
-  - {fileID: 8300000, guid: 22e04cbe8ba8f1b41bb2b3ef6ac0923c, type: 3}
+  - {fileID: 8300000, guid: 10e3069c3f510744181f100df1f19219, type: 3}
+  - {fileID: 8300000, guid: 3b9245c3416dd0a40b751135a925b89c, type: 3}
+  - {fileID: 8300000, guid: 1212b73faed89f642a7efeba4d70b52a, type: 3}
   loop: 0
   pause_lower: 0
   volume: 0.6
