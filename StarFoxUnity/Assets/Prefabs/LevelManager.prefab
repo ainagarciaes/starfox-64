@@ -342,10 +342,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1573838381100054231}
     m_Modifications:
+    - target: {fileID: 1718574712807279397, guid: fd0b257366fe52543804b209e98b7b63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319236673198383523, guid: fd0b257366fe52543804b209e98b7b63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033615451451145454, guid: fd0b257366fe52543804b209e98b7b63,
         type: 3}
       propertyPath: m_Name
       value: Gameover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033615451451145454, guid: fd0b257366fe52543804b209e98b7b63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069251229121470090, guid: fd0b257366fe52543804b209e98b7b63,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218665738395029906, guid: fd0b257366fe52543804b209e98b7b63,
         type: 3}
@@ -452,7 +472,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5087888545944065597, guid: fd0b257366fe52543804b209e98b7b63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761001699641403041, guid: fd0b257366fe52543804b209e98b7b63,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4743999357300316381, guid: fd0b257366fe52543804b209e98b7b63, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd0b257366fe52543804b209e98b7b63, type: 3}
 --- !u!1 &2500744738904850452 stripped
 GameObject:
@@ -473,10 +504,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1573838381100054231}
     m_Modifications:
+    - target: {fileID: 2402859360321584747, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2485539964942764282, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100057762427507354, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958170285917976666, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030047505541756311, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6134589061280881507, guid: c2027528b247f504b9927e6eaaeb9c44,
         type: 3}
       propertyPath: m_Name
       value: Gamewin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134589061280881507, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794265699539618370, guid: c2027528b247f504b9927e6eaaeb9c44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8818576619857472092, guid: c2027528b247f504b9927e6eaaeb9c44,
         type: 3}
