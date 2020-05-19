@@ -21,5 +21,4 @@ public class Turbo : MonoBehaviour
         else if (cs.m_Speed < regularSpeed) cs.m_Speed += cs.m_Speed * Time.deltaTime;
         else cs.m_Speed -= cs.m_Speed * Time.deltaTime;
     }
-
 }
