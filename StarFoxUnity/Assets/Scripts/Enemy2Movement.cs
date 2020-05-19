@@ -8,10 +8,12 @@ public class Enemy2Movement : MonoBehaviour
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shieldObj;
+    [SerializeField] GameObject explosion;
+
     [SerializeField] AudioManager audio;
     GameObject player;
     private const int maxShield = 40;
-    private const float spraySpan = 1.5f;
+    private const float spraySpan = 1.5f, shieldCooldown = 3f;
 
     int weaponIndex;
     float waitToShoot;
@@ -27,8 +29,8 @@ public class Enemy2Movement : MonoBehaviour
     {
         shield = true;
         floatingAround = 0;
-        shieldHits = 10;
-        hits = 15;
+        shieldHits = 0;
+        hits = 40;
         weaponIndex = 0;
         waitToShoot = 0;
         rb = GetComponent<Rigidbody>();
@@ -60,6 +62,11 @@ public class Enemy2Movement : MonoBehaviour
             weaponIndex %= 2;
             waitToShoot = spraySpan;
         }
+        else if (!shield)
+        {
+            audio.PlaySingleSound(1, 0.8f);
+            shield = true;
+        }
 
     }
 
@@ -81,10 +88,12 @@ public class Enemy2Movement : MonoBehaviour
                 if (!shield)
                 {
                     --hits;
+                    other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
                     LevelManager.Instance.UpdateScore(1);
                     if (hits <= 0)
                     {
                         LevelManager.Instance.UpdateScore(30);
+                        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
                         Destroy(gameObject);
                     }
 
@@ -93,9 +102,14 @@ public class Enemy2Movement : MonoBehaviour
                 {
                     ++shieldHits;
                     other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
-                    audio.PlaySound();
+                    audio.PlaySingleSound(0);
                     if (shieldHits >= maxShield)
+                    {
+                        shieldHits = 0;
+                        audio.PlaySingleSound(2, 0.8f);
                         shield = false;
+                        waitToShoot = shieldCooldown;
+                    }
                 }
     }
 }

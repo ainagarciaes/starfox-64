@@ -84,6 +84,8 @@ MonoBehaviour:
   muzzle: {fileID: 3022899725138503779, guid: bd9998f95386cb74dadb110172857a97, type: 3}
   bullet: {fileID: 3022899725138503779, guid: 812ebc778aa127d48bce3f58264e601d, type: 3}
   shieldObj: {fileID: 6774400442256201228}
+  explosion: {fileID: 344688889131459866, guid: 4d49bc17a9f908a4eb29a43f14c0ad2e,
+    type: 3}
   audio: {fileID: 8889401489085203660}
   viewportPos: {x: 0, y: 0, z: 0}
   shield: 0
@@ -395,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
       propertyPath: audio.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
@@ -412,6 +414,16 @@ PrefabInstance:
       propertyPath: volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c6e8d0077129e25438c0de1a53e6ca82, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5215c4f4f5abeb147b74ba3a05418035, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b1edbbc6772984e9a8fdc4658097fe, type: 3}
 --- !u!4 &8876717407759279197 stripped

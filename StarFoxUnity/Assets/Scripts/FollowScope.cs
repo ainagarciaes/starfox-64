@@ -10,6 +10,8 @@ public class FollowScope : MonoBehaviour
     public Vector2 distance;
     public Vector3 viewportPos;
     public Vector3 viewportAim;
+    public float finalBarrelX;
+
     public int hits;
     // rotation parameters
     private float offset;
@@ -48,7 +50,7 @@ public class FollowScope : MonoBehaviour
                 rotation_side = -1;
                 bias = 1;
                 duration = 0;
-
+                finalBarrelX = Mathf.Clamp(viewportPos.x - 0.3f, 0.1f, 0.9f);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
@@ -57,6 +59,7 @@ public class FollowScope : MonoBehaviour
                 rotation_side = 1;
                 bias = 1;
                 duration = 0;
+                finalBarrelX = Mathf.Clamp(viewportPos.x + 0.3f, 0.1f, 0.9f);
 
             }
             if (rotating)
@@ -70,19 +73,34 @@ public class FollowScope : MonoBehaviour
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
                 transform.LookAt(lookAtObject.transform.position);
-                transform.RotateAround(transform.position, transform.forward, 50 * (1 - cooldown) * (viewportPos.x - viewportAim.x));
+                transform.RotateAround(transform.position, transform.forward, 50 * (1 - cooldown) * (1 - cooldown) * (viewportPos.x - viewportAim.x));
                 distance = viewportAim - viewportPos;
-                transform.position = Camera.main.ViewportToWorldPoint(viewportPos + new Vector3(distance.x, distance.y - 0.1f, 0) * (1 - cooldown) * Time.deltaTime);
+                viewportPos += new Vector3(distance.x, distance.y - 0.1f, 0) * (1 - cooldown) * (1 - cooldown) * Time.deltaTime;
+                viewportPos.x = Mathf.Clamp(viewportPos.x, 0.1f, 0.9f);
+                viewportPos.y = Mathf.Clamp(viewportPos.y, 0.1f, 0.9f);
+                transform.position = Camera.main.ViewportToWorldPoint(viewportPos);
                 if (cooldown > 0)
                     cooldown -= Time.deltaTime;
                 else cooldown = 0;
             }
         }
     }
+
+    private bool OnScreen()
+    {
+        viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewportPos.x < 0.1f) return false;
+        if (viewportPos.y < 0.1f) return false;
+        if (viewportPos.x > 0.9f) return false;
+        if (viewportPos.y > 0.9f) return false;
+        return true;
+    }
     private void DoABarrelRollLatMovement()
     {
         viewportPos = Camera.main.WorldToViewportPoint(transform.position);
-        transform.position = Camera.main.ViewportToWorldPoint(viewportPos + Vector3.right * 5 * rotation_side * duration * duration * Time.deltaTime);
+        float latMov = finalBarrelX - viewportPos.x;
+        if (OnScreen())
+            transform.position = Camera.main.ViewportToWorldPoint(viewportPos + Vector3.right * 5 * latMov * Time.deltaTime);
     }
     private void DoABarrelRoll()
     {
@@ -90,8 +108,8 @@ public class FollowScope : MonoBehaviour
         {
             if (currentRotation < 180)
                 rollingSpeed += Time.deltaTime * rollingSpeed * rollAcc;
-            else if (currentRotation < 390 && rollingSpeed >= 1)
-                rollingSpeed -= Time.deltaTime * rollingSpeed * rollAcc;
+            else if (currentRotation < 360 && rollingSpeed >= 1)
+                rollingSpeed -= Time.deltaTime * rollingSpeed / 2 * rollAcc;
             else
             {
                 rotating = false;
