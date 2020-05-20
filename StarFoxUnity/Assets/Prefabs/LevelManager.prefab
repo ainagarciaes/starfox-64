@@ -954,47 +954,81 @@ PrefabInstance:
     - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 483
       objectReference: {fileID: 0}
     - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 93
       objectReference: {fileID: 0}
     - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
+        type: 3}
+      propertyPath: m_text
+      value: 'INSTRUCTIONS/CONTROLLS
+
+
+        - Move the mouse to control the spaceship
+
+
+        -
+        Avoid collisions with the enviroment!
+
+
+        - Click or hold Left-Click
+        to shoot at the enemies
+
+
+        - Press A or D to roll to the sides. This
+        will avoid enemy bullets!
+
+
+        - Use W and S to increase or decrease
+        the spaceship velocity. The green bar indicates how much turbo remains. If
+        it discharges, the spaceship will not be able to use turbo until it is completely 
+        filled.
+
+
+        - Press P or ESC to enter/exit pause menu quickly'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014613657600204895, guid: 3e13369776460894790b7788898bca15,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18.25
       objectReference: {fileID: 0}
     - target: {fileID: 8014613658675565724, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8014613658675565724, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8014613658675565724, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8014613658675565724, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8014613659565801684, guid: 3e13369776460894790b7788898bca15,
         type: 3}
@@ -1004,7 +1038,7 @@ PrefabInstance:
     - target: {fileID: 8014613659565801711, guid: 3e13369776460894790b7788898bca15,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e13369776460894790b7788898bca15, type: 3}
