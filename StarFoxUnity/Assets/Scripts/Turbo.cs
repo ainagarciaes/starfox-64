@@ -45,4 +45,10 @@ public class Turbo : MonoBehaviour
         }
         print(currentTurbo);
     }
+
+    public float GetTurboValue()
+    {
+        if (turboAvailable) return currentTurbo / maxTurbo;
+        return -currentTurbo / maxTurbo;
+    }
 }
