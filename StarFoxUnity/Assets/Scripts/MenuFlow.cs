@@ -22,7 +22,7 @@ public class MenuFlow : MonoBehaviour
         title.gameObject.SetActive(true);
         menu.gameObject.SetActive(false);
 
-        audioTitle.GetComponent<AudioManager>().PlaySound();
+        audioTitle.GetComponent<AudioManagerMM>().PlaySound();
     }
 
     // Update is called once per frame
@@ -30,9 +30,9 @@ public class MenuFlow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            audioTitle.GetComponent<AudioManager>().StopSound();
-            audioMenu.GetComponent<AudioManager>().PlaySound();
-            audioStart.GetComponent<AudioManager>().PlaySound();
+            audioTitle.GetComponent<AudioManagerMM>().StopSound();
+            audioMenu.GetComponent<AudioManagerMM>().PlaySound();
+            audioStart.GetComponent<AudioManagerMM>().PlaySound();
             title.gameObject.SetActive(false);
             menu.gameObject.SetActive(true);
             Cursor.visible = true;
