@@ -34,6 +34,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject GameGUI;
     [SerializeField] GameObject DamageGUI;
     [SerializeField] Image healthBar;
+    [SerializeField] Image turboNormal;
+    [SerializeField] Image turboGod;
     [SerializeField] GameObject Audio;
 
     private AudioManager am;
@@ -94,6 +96,11 @@ public class LevelManager : MonoBehaviour
         else if (IsPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)))
         {
             Time.timeScale = 1;
+            PauseMenu.GetComponent<PaseMenuController>().ResumeGame();
+            GameOverMenu.SetActive(false);
+            GameWinMenu.SetActive(false);
+            GameGUI.SetActive(true);
+            DamageGUI.SetActive(false);
             PauseMenu.SetActive(false);
             IsPaused = false;
         }
