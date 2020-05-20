@@ -37,6 +37,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Image turboNormal;
     [SerializeField] Image turboGod;
     [SerializeField] GameObject Audio;
+    [SerializeField] Cinemachine.CinemachineDollyCart cart;
+    [SerializeField] Sprite stc;
+    [SerializeField] Sprite stg;
 
     private AudioManager am;
     public static bool IsPaused = false;
@@ -70,6 +73,19 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // update turbo bar
+        float f = cart.GetComponent<Turbo>().GetTurboValue();
+        turboNormal.sprite = stc;
+        turboGod.sprite = stc;
+        if (f < 0)
+        {
+            turboNormal.sprite = stg;
+            turboGod.sprite = stg;
+            f = f * -1;
+        }
+        turboGod.fillAmount = f;
+        turboNormal.fillAmount = f;
+        
         IsPaused = PauseMenu.activeInHierarchy;
         Cursor.visible = IsPaused;
         if (!PauseMenu.activeInHierarchy)
