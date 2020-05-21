@@ -451,10 +451,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5330759268149692233, guid: cc396e0b8790f7b488161fb94966052b,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7207251938019881787, guid: cc396e0b8790f7b488161fb94966052b,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330507970313692044, guid: cc396e0b8790f7b488161fb94966052b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801457379211026947, guid: cc396e0b8790f7b488161fb94966052b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801457379211026947, guid: cc396e0b8790f7b488161fb94966052b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801457379211026947, guid: cc396e0b8790f7b488161fb94966052b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc396e0b8790f7b488161fb94966052b, type: 3}
