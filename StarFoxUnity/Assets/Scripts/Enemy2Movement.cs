@@ -67,7 +67,7 @@ public class Enemy2Movement : MonoBehaviour
         }
         else if (!shield)
         {
-            audio.PlaySingleSound(1, 0.8f);
+            audio.PlaySingleSound(1, 0.6f);
             shield = true;
         }
 
@@ -100,7 +100,7 @@ public class Enemy2Movement : MonoBehaviour
                         gameObject.transform.GetComponent<MeshCollider>().enabled = false;
                         gameObject.transform.Find("E2 FighterV2").gameObject.SetActive(false);
                         shieldObj.SetActive(false);
-                        audio.PlaySingleSound(3, 0.8f);
+                        audio.PlaySingleSound(3, 0.6f);
                         alive = false;
                         Destroy(gameObject, 3);
                     }
@@ -114,7 +114,7 @@ public class Enemy2Movement : MonoBehaviour
                     if (shieldHits >= maxShield)
                     {
                         shieldHits = 0;
-                        audio.PlaySingleSound(2, 0.8f);
+                        audio.PlaySingleSound(2, 0.6f);
                         shield = false;
                         waitToShoot = shieldCooldown;
                     }

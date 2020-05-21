@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
 
     }
 
@@ -46,13 +47,20 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
         int l = audio.Length;
         int index = Random.Range(0, l);
         audioSource.loop = loop;
         audioSource.volume = volume;
         audioSource.clip = audio[index];
         audioSource.Play();
+    }
+
+    public void PlaySingleSound()
+    {
+        int l = audio.Length;
+        int index = Random.Range(0, l);
+        audioSource.volume = volume;
+        audioSource.PlayOneShot(audio[index]);
     }
     public void PlaySingleSound(int index)
     {
@@ -61,7 +69,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySingleSound(int index, float customVolume)
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.volume = customVolume;
         if (index == 1) audioSource.volume = 1;
         audioSource.PlayOneShot(audio[index]);

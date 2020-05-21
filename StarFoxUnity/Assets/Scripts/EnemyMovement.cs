@@ -127,8 +127,8 @@ public class EnemyMovement : MonoBehaviour
                 gameObject.transform.Find("E1 Fighter").gameObject.SetActive(false);
                 if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
                 alive = false;
-                audio.PlaySingleSound(0, 0.8f);
-                Destroy(gameObject,3);
+                audio.PlaySingleSound();
+                Destroy(gameObject, 3);
             }
     }
 
