@@ -32,7 +32,7 @@ public class SatelliteController : MonoBehaviour
             float dist = Vector3.Distance(lookDir, Vector3.zero);
             Ray ray = new Ray(transform.position, transform.forward);
             float distToRay = Vector3.Cross(ray.direction, player.position - ray.origin).magnitude;
-            print(distToRay + " " + dist + " " + angle);
+            //print(distToRay + " " + dist + " " + angle);
             if (distToRay < 2)
                 laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (dist));
             else
