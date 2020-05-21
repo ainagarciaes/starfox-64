@@ -18,10 +18,11 @@ public class garbageCollector : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "TerrainCollider")
+        if(other.gameObject.tag != "Player" && other.gameObject.tag != "TerrainCollider" && other.gameObject.tag != "Untagged")
         {
+
             print("destroying: " + other.gameObject.name);
-            Destroy(other.gameObject);
+            Destroy(other.gameObject);  
         }
     }
 }
