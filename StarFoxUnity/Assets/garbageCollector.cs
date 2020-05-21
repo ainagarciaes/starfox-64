@@ -21,7 +21,7 @@ public class garbageCollector : MonoBehaviour
         if(other.gameObject.tag != "Player" && other.gameObject.tag != "TerrainCollider" && other.gameObject.tag != "Untagged")
         {
 
-            print("destroying: " + other.gameObject.name);
+            //print("destroying: " + other.gameObject.name);
             Destroy(other.gameObject);  
         }
     }

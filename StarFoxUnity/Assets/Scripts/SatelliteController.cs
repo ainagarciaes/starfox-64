@@ -8,6 +8,8 @@ public class SatelliteController : MonoBehaviour
     [SerializeField] GameObject laserCrosshair;
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject laserProjectile;
+    [SerializeField] GameObject explosion;
+
     private const float shootTime = 3, cooldown = 3, maxSpeed = 30;
     private float timeCounter, speed;
 
@@ -56,7 +58,19 @@ public class SatelliteController : MonoBehaviour
             newFlash.transform.LookAt(player.position + Camera.main.transform.forward*7);
             GameObject newbullet = Instantiate(laserProjectile, laserCrosshair.transform.position, Quaternion.identity);
             newbullet.transform.LookAt(player.position + Camera.main.transform.forward * 7);
+            laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (300));
             laserCrosshair.SetActive(false);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("EnemyBullet"))
+            if (other.CompareTag("PlayerBullet"))
+            {
+                other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+                LevelManager.Instance.UpdateScore(5);
+                if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
     }
 }

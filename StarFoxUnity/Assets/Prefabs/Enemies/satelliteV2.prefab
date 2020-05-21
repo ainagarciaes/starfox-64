@@ -368,3 +368,5 @@ MonoBehaviour:
   muzzle: {fileID: 3022899725138503779, guid: bd9998f95386cb74dadb110172857a97, type: 3}
   laserProjectile: {fileID: 3022899725138503779, guid: b27f879d4e28c274a8db5b75b590962d,
     type: 3}
+  explosion: {fileID: 344688889131459866, guid: ea756696757fbcc4b85f47186e227a8c,
+    type: 3}
