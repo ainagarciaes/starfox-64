@@ -9,9 +9,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject explosion;
+    [SerializeField] AudioManager audio;
+
     GameObject player;
     private const int spray = 2;
     private const float spraySpan = 0.3f, cooldown = 0.7f;
+    private bool alive;
     int current = -1, weaponIndex, currentSpray;
     float waitToShoot;
 
@@ -23,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         weaponIndex = 0;
         currentSpray = spray;
         waitToShoot = 0;
@@ -34,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
 
-
+        if (!alive) return;
 
         if (current >= 0 && (current + 1 < pathTarget.Length) && ChangeToNext())
         {
@@ -64,6 +68,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!alive) return;
+
+
         if (hasChanged)
         {
             //rb.velocity = 0.7f * rb.velocity;
@@ -116,8 +123,12 @@ public class EnemyMovement : MonoBehaviour
             {
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
                 LevelManager.Instance.UpdateScore(5);
+                gameObject.transform.GetComponent<MeshCollider>().enabled = false;
+                gameObject.transform.Find("E1 Fighter").gameObject.SetActive(false);
                 if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                alive = false;
+                audio.PlaySingleSound(0, 0.8f);
+                Destroy(gameObject,3);
             }
     }
 

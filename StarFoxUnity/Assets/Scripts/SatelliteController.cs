@@ -9,14 +9,19 @@ public class SatelliteController : MonoBehaviour
     [SerializeField] GameObject muzzle;
     [SerializeField] GameObject laserProjectile;
     [SerializeField] GameObject explosion;
+    [SerializeField] AudioManager audio;
+
 
     private const float shootTime = 3, cooldown = 3, maxSpeed = 30;
     private float timeCounter, speed;
+    private bool alive;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         speed = 0.5f;
         timeCounter = 0;
@@ -25,7 +30,7 @@ public class SatelliteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!alive) return;
         timeCounter += Time.deltaTime;
         if (laserCrosshair.activeSelf)
         {
@@ -69,8 +74,11 @@ public class SatelliteController : MonoBehaviour
             {
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
                 LevelManager.Instance.UpdateScore(5);
+                gameObject.transform.Find("SatelliteMesh").gameObject.SetActive(false);
                 if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                alive = false;
+                audio.PlaySingleSound(0, 0.8f);
+                Destroy(gameObject, 3);
             }
     }
 }

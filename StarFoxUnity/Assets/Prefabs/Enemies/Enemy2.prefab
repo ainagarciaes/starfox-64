@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
       propertyPath: audio.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
@@ -424,6 +424,11 @@ PrefabInstance:
       propertyPath: audio.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 5215c4f4f5abeb147b74ba3a05418035, type: 3}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: audio.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6243bf3fa8c99884c8a4487e508183ef, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b1edbbc6772984e9a8fdc4658097fe, type: 3}
 --- !u!4 &8876717407759279197 stripped

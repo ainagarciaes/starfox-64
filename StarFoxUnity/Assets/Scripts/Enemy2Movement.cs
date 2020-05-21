@@ -12,8 +12,9 @@ public class Enemy2Movement : MonoBehaviour
 
     [SerializeField] AudioManager audio;
     GameObject player;
-    private const int maxShield = 40;
+    private const int maxShield = 40, life = 40;
     private const float spraySpan = 1.5f, shieldCooldown = 3f;
+    private bool alive;
 
     int weaponIndex;
     float waitToShoot;
@@ -27,10 +28,11 @@ public class Enemy2Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         shield = true;
         floatingAround = 0;
         shieldHits = 0;
-        hits = 40;
+        hits = life;
         weaponIndex = 0;
         waitToShoot = 0;
         rb = GetComponent<Rigidbody>();
@@ -40,6 +42,7 @@ public class Enemy2Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!alive) return;
         shieldObj.SetActive(shield);
 
         floatingAround += Time.deltaTime;
@@ -94,7 +97,12 @@ public class Enemy2Movement : MonoBehaviour
                     {
                         LevelManager.Instance.UpdateScore(30);
                         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
-                        Destroy(gameObject);
+                        gameObject.transform.GetComponent<MeshCollider>().enabled = false;
+                        gameObject.transform.Find("E2 FighterV2").gameObject.SetActive(false);
+                        shieldObj.SetActive(false);
+                        audio.PlaySingleSound(3, 0.8f);
+                        alive = false;
+                        Destroy(gameObject, 3);
                     }
 
                 }
