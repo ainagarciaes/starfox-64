@@ -15,10 +15,12 @@ public class garbageCollector : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "TerrainCollider")
         {
+            print("destroying: " + other.gameObject.name);
             Destroy(other.gameObject);
         }
     }
