@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public bool pause_lower;
     bool paused = false;
     public float volume;
+    public bool spatialSound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,12 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volume;
         audioSource.clip = audio[index];
         audioSource.Play();
+        if (spatialSound)
+        {
+            audioSource.spatialBlend = 1;
+            audioSource.rolloffMode = AudioRolloffMode.Linear;
+        }
+
     }
 
     public void PlaySingleSound()

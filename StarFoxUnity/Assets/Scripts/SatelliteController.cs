@@ -15,7 +15,9 @@ public class SatelliteController : MonoBehaviour
     private const float shootTime = 3, cooldown = 3, maxSpeed = 30;
     private float timeCounter, speed;
     private bool alive;
+    float dist;
 
+    public float maxRange;
 
 
     // Start is called before the first frame update
@@ -31,12 +33,14 @@ public class SatelliteController : MonoBehaviour
     void Update()
     {
         if (!alive) return;
+        if (laserCrosshair == null) return;
         timeCounter += Time.deltaTime;
+
         if (laserCrosshair.activeSelf)
         {
             Vector3 lookDir = player.position + player.forward * 6 - transform.position;
             float angle = Vector3.Angle(lookDir, transform.forward);
-            float dist = Vector3.Distance(lookDir, Vector3.zero);
+            dist = Vector3.Distance(lookDir, Vector3.zero);
             Ray ray = new Ray(transform.position, transform.forward);
             float distToRay = Vector3.Cross(ray.direction, player.position - ray.origin).magnitude;
             //print(distToRay + " " + dist + " " + angle);
@@ -53,14 +57,14 @@ public class SatelliteController : MonoBehaviour
         {
             laserCrosshair.SetActive(true);
             speed = 0.5f;
-            timeCounter = Random.Range(0,0.5f);
+            timeCounter = Random.Range(0, 0.5f);
             return;
         }
-        if (timeCounter >= shootTime)
+        if (dist < 100 && timeCounter >= shootTime)
         {
             timeCounter = 0;
             GameObject newFlash = Instantiate(muzzle, laserCrosshair.transform.position, Quaternion.identity);
-            newFlash.transform.LookAt(player.position + Camera.main.transform.forward*7);
+            newFlash.transform.LookAt(player.position + Camera.main.transform.forward * 7);
             GameObject newbullet = Instantiate(laserProjectile, laserCrosshair.transform.position, Quaternion.identity);
             newbullet.transform.LookAt(player.position + Camera.main.transform.forward * 7);
             laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (300));

@@ -9807,6 +9807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59f48f1db730e943ad19e8956767df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 0
 --- !u!1001 &2342540041624774967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9892,6 +9893,11 @@ PrefabInstance:
     - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
         type: 3}
       propertyPath: loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954666831256361962, guid: f8b1edbbc6772984e9a8fdc4658097fe,
+        type: 3}
+      propertyPath: spatialSound
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

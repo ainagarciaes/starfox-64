@@ -3,7 +3,42 @@ guid: 09c6f87c023c43d48874fcc5eeed6bb3
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Accent color
+    second: {fileID: 2100000, guid: 832580a5a701a95498e9360b08260a46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark
+    second: {fileID: 2100000, guid: 67b813f9f07df454d84124a847dfc3ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main
+    second: {fileID: 2100000, guid: 22a091fab9e7abb4a818acd7410f5a58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main color
+    second: {fileID: 2100000, guid: 009c29289b43f0e46be58defe043e6a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 5480bc4e53d706c4fa585681c7e8b2ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: c877976e6137c1349b73038d5fe4c851, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Silver
+    second: {fileID: 2100000, guid: 06644b115f23e2846806a327cf081f9f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
