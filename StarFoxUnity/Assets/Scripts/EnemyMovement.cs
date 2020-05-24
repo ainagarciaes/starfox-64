@@ -83,12 +83,12 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 lookDir = rb.velocity;
             Quaternion lookRotation = Quaternion.LookRotation(lookDir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 1f);
-
+            //transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 1f);
+            rb.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 1f);
             rb.AddForce((pathTarget[current].position - transform.position));
-            if (velocity < 20)
+            if (velocity < 30)
                 rb.AddForce((pathTarget[current].position - transform.position).normalized);
-            else rb.velocity = rb.velocity.normalized * 15;
+            else rb.velocity = rb.velocity.normalized * 25;
         }
 
     }
@@ -105,11 +105,13 @@ public class EnemyMovement : MonoBehaviour
 
     private bool ChangeToNext()
     {
-        float distA = Vector3.Distance(transform.position, Vector3.zero);
-        float distB = Vector3.Distance(Vector3.zero, pathTarget[current].position);
+        float distA = Vector3.Distance(transform.position,player.transform.position);
+        float distB = Vector3.Distance(player.transform.position, pathTarget[current].position);
         if (distB > distA) return true;
         return false;
     }
+
+
     public void SetPathTarget(Transform[] newPath)
     {
         current = 0;
