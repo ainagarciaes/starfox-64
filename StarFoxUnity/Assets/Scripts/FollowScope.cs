@@ -45,6 +45,8 @@ public class FollowScope : MonoBehaviour
             LevelManager.Instance.SetRotation(rotating);
             if (Input.GetKeyDown(KeyCode.A))
             {
+                currentRotation = 0;
+                rollingSpeed = 1;
                 rotating = true;
                 rollInitialized = false;
                 rotation_side = -1;
@@ -54,6 +56,8 @@ public class FollowScope : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
+                currentRotation = 0;
+                rollingSpeed = 1;
                 rotating = true;
                 rollInitialized = false;
                 rotation_side = 1;
@@ -104,8 +108,7 @@ public class FollowScope : MonoBehaviour
     }
     private void DoABarrelRoll()
     {
-        if (rollInitialized)
-        {
+
             if (currentRotation < 180)
                 rollingSpeed += Time.deltaTime * rollingSpeed * rollAcc;
             else if (currentRotation < 360 && rollingSpeed >= 1)
@@ -120,16 +123,17 @@ public class FollowScope : MonoBehaviour
             }
             currentRotation += rollingSpeed;
             transform.RotateAround(transform.position, transform.forward, -rotation_side * rollingSpeed);
-        }
-        else EnterRoll();
+
     }
 
     private void EnterRoll()
     {
+        viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
+
         transform.LookAt(Camera.main.ViewportToWorldPoint(
                             new Vector3((1 - bias) * viewportPos.x + bias * viewportAim.x,
                                         (1 - bias) * viewportPos.y + bias * viewportAim.y,
-                                        viewportAim.z)),
+                                        -viewportAim.z)),
                         transform.up);
         if (bias > 0.05f)
             bias *= Mathf.Pow(0.9f, 500 * Time.deltaTime);
@@ -148,6 +152,9 @@ public class FollowScope : MonoBehaviour
                 rollInitialized = true;
             }
         }
+        currentRotation = 0;
+        rollingSpeed = 1;
+        rollInitialized = true;
     }
 
     private void OnTriggerEnter(Collider other)
