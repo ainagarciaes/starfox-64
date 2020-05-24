@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Turbo : MonoBehaviour
 {
-    const float regularSpeed = 20, minSpeed = 5, maxSpeed = 70;
+    const float  minSpeed = 5, maxSpeed = 70;
+    float regularSpeed;
     [SerializeField] Cinemachine.CinemachineDollyCart cs;
 
 
@@ -14,6 +15,7 @@ public class Turbo : MonoBehaviour
 
     private void Start()
     {
+        regularSpeed = cs.m_Speed;
         turboAvailable = true;
         currentTurbo = maxTurbo;
     }

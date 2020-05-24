@@ -79,9 +79,10 @@ public class FollowScope : MonoBehaviour
                 transform.LookAt(lookAtObject.transform.position);
                 transform.RotateAround(transform.position, transform.forward, 50 * (1 - cooldown) * (1 - cooldown) * (viewportPos.x - viewportAim.x));
                 distance = viewportAim - viewportPos;
-                viewportPos += new Vector3(distance.x, distance.y - 0.1f, 0) * (1 - cooldown) * (1 - cooldown) * Time.deltaTime;
+                viewportPos += new Vector3(distance.x, distance.y - 0.1f, 0) * Mathf.Pow(1 - cooldown, 3) * Time.deltaTime;
                 viewportPos.x = Mathf.Clamp(viewportPos.x, 0.1f, 0.9f);
                 viewportPos.y = Mathf.Clamp(viewportPos.y, 0.1f, 0.9f);
+                //if (Vector2.Distance(Vector2.zero, new Vector2(distance.x, distance.y)) > 0.1f)
                 transform.position = Camera.main.ViewportToWorldPoint(viewportPos);
                 if (cooldown > 0)
                     cooldown -= Time.deltaTime;
@@ -109,20 +110,20 @@ public class FollowScope : MonoBehaviour
     private void DoABarrelRoll()
     {
 
-            if (currentRotation < 180)
-                rollingSpeed += Time.deltaTime * rollingSpeed * rollAcc;
-            else if (currentRotation < 360 && rollingSpeed >= 1)
-                rollingSpeed -= Time.deltaTime * rollingSpeed / 2 * rollAcc;
-            else
-            {
-                rotating = false;
-                rollingSpeed = 0;
-                offset = 0;
-                cooldown = 0.7f;
-                return;
-            }
-            currentRotation += rollingSpeed;
-            transform.RotateAround(transform.position, transform.forward, -rotation_side * rollingSpeed);
+        if (currentRotation < 180)
+            rollingSpeed += Time.deltaTime * rollingSpeed * rollAcc;
+        else if (currentRotation < 360 && rollingSpeed >= 1)
+            rollingSpeed -= Time.deltaTime * rollingSpeed / 2 * rollAcc;
+        else
+        {
+            rotating = false;
+            rollingSpeed = 0;
+            offset = 0;
+            cooldown = 0.7f;
+            return;
+        }
+        currentRotation += rollingSpeed;
+        transform.RotateAround(transform.position, transform.forward, -rotation_side * rollingSpeed);
 
     }
 
