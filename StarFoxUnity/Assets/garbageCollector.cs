@@ -18,7 +18,7 @@ public class garbageCollector : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("TerrainCollider") && !other.gameObject.CompareTag("Spawner") && !other.gameObject.CompareTag("ToNextLevel"))
+        if(!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("TerrainCollider") && !other.gameObject.CompareTag("Spawner") && !other.gameObject.CompareTag("ToNextLevel") && !other.gameObject.CompareTag("DamagePerSecond"))
         {
 
             //print("destroying: " + other.gameObject.name);
