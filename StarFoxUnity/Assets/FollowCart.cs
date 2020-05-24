@@ -18,9 +18,7 @@ public class FollowCart : MonoBehaviour
     void Update()
     {
         if (!enabled) return;
-
-        transform.position = 2 * PlayerArea.transform.position - LookAtObj.transform.position;
-        transform.localPosition += Vector3.forward * -40;
+        transform.position = PlayerArea.transform.position +(PlayerArea.transform.position - LookAtObj.transform.position).normalized*40;
         transform.LookAt(LookAtObj.transform.position);
     }
 }
