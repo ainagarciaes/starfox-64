@@ -11,11 +11,11 @@ public class AudioManager : MonoBehaviour
     bool paused = false;
     public float volume;
     public bool spatialSound = false;
+    public bool random = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
 
     }
 
@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
     {
         // add reaction to pause menu
         paused = LevelManager.Instance.IsGamePaused();
-        
+
         if (paused && pause_lower)
         {
             LowerVolume();
@@ -42,23 +42,28 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.UnPause();
         }
-     
+
     }
 
     public void PlaySound()
     {
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
         int l = audio.Length;
         int index = Random.Range(0, l);
-        audioSource.loop = loop;
-        audioSource.volume = volume;
         audioSource.clip = audio[index];
-        audioSource.Play();
+        audioSource.loop = loop;
+        if (random) 
+            audioSource.time = Random.Range(0, audioSource.clip.length / 2);
+        audioSource.volume = volume;
+
         if (spatialSound)
         {
             audioSource.spatialBlend = 1;
             audioSource.rolloffMode = AudioRolloffMode.Linear;
         }
-
+        audioSource.Play();
     }
 
     public void PlaySingleSound()
