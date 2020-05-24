@@ -141,6 +141,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public bool IsGamePaused()
+    {
+        return IsPaused;
+    }
     public void UpdateHitPoints(int damage, int type) // 0: damage per projectils, 1: colisio...
     {
         if (!(roll && type == 0)) // roll evita damage per colisio

@@ -23,27 +23,26 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         // add reaction to pause menu
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        paused = LevelManager.Instance.IsGamePaused();
+        
+        if (paused && pause_lower)
         {
-            paused = !paused;
-            if (paused && pause_lower)
-            {
-                LowerVolume();
-            }
-
-            else if (!paused && pause_lower)
-            {
-                ResetVolume();
-            }
-            else if (paused && !pause_lower)
-            {
-                audioSource.Pause();
-            }
-            else if (!paused && !pause_lower)
-            {
-                audioSource.UnPause();
-            }
+            LowerVolume();
         }
+
+        else if (!paused && pause_lower)
+        {
+            ResetVolume();
+        }
+        else if (paused && !pause_lower)
+        {
+            audioSource.Pause();
+        }
+        else if (!paused && !pause_lower)
+        {
+            audioSource.UnPause();
+        }
+     
     }
 
     public void PlaySound()

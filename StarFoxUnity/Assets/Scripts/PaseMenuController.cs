@@ -13,6 +13,8 @@ public class PaseMenuController : MonoBehaviour
     {
         menu = this.gameObject.transform.GetChild(1);
         instr = this.gameObject.transform.GetChild(2);
+        menu.gameObject.SetActive(true);
+        instr.gameObject.SetActive(false);
         audioPause = GameObject.Find("AudioPause");
         ToPauseMenu();
     }
