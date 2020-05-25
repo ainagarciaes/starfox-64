@@ -9,8 +9,10 @@ public class Enemy2Movement : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shieldObj;
     [SerializeField] GameObject explosion;
-
     [SerializeField] AudioManager audio;
+
+    public Vector3 MoveTo;
+
     GameObject player;
     private const int maxShield = 40, life = 40;
     private const float spraySpan = 1.5f, shieldCooldown = 3f;
@@ -47,8 +49,8 @@ public class Enemy2Movement : MonoBehaviour
 
         floatingAround += Time.deltaTime;
         transform.position += Vector3.up * Mathf.Sin(floatingAround) * Time.deltaTime * 3;
-        transform.position += transform.forward * Time.deltaTime * 5;
-
+        transform.position += Vector3.Normalize(MoveTo - transform.position) * Time.deltaTime * 10;
+        transform.LookAt(MoveTo);
 
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
         else if (OnScreen() && shield)
@@ -91,6 +93,7 @@ public class Enemy2Movement : MonoBehaviour
             if (other.CompareTag("PlayerBullet"))
                 if (!shield)
                 {
+                    print("HIT");
                     --hits;
                     other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
                     LevelManager.Instance.UpdateScore(1);

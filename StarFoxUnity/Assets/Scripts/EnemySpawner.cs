@@ -28,12 +28,15 @@ public class EnemySpawner : MonoBehaviour
                 {
                     nSpwaned++;
                     GameObject Enemy = Instantiate(EnemyObject, transform.position, Quaternion.identity);
-                    print("POSITION: " + transform.position);
                     if (Enemy.GetComponent<EnemyMovement>() != null)
                     {
                         Enemy.transform.LookAt(pathTarget[0].position);
                         //Enemy.GetComponent<Rigidbody>().AddForce((pathTarget[0].position- transform.position).normalized * +300);
                         Enemy.GetComponent<EnemyMovement>().SetPathTarget(pathTarget);
+                    }
+                    else if (Enemy.GetComponent<Enemy2Movement>() != null)
+                    {
+                        Enemy.GetComponent<Enemy2Movement>().MoveTo = pathTarget[0].position;
                     }
                     else {     
                         //Enemy.transform.LookAt(); 
