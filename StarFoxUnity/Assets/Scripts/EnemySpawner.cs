@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     nSpwaned++;
                     GameObject Enemy = Instantiate(EnemyObject, transform.position, Quaternion.identity);
+                    print("POSITION: " + transform.position);
                     Enemy.transform.LookAt(pathTarget[0].position);
                     //Enemy.GetComponent<Rigidbody>().AddForce((pathTarget[0].position- transform.position).normalized * +300);
                     Enemy.GetComponent<EnemyMovement>().SetPathTarget(pathTarget);
