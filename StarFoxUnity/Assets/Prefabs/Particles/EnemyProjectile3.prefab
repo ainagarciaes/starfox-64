@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: {fileID: 3022899725138503779, guid: a1229ec9b8bfbd04aaf87f23b314d137, type: 3}
   direction: {x: 0, y: 0, z: 0}
-  speed: 400
+  speed: 500
   lifetime: 0
 --- !u!65 &6149449090252577579
 BoxCollider:

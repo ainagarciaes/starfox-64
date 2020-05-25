@@ -60,11 +60,12 @@ public class SatelliteController : MonoBehaviour
             timeCounter = Random.Range(0, 0.5f);
             return;
         }
-        if (dist < 100 && timeCounter >= shootTime)
+        if (dist < 300 && timeCounter >= shootTime)
         {
             timeCounter = 0;
             GameObject newFlash = Instantiate(muzzle, laserCrosshair.transform.position, Quaternion.identity);
             newFlash.transform.LookAt(player.position + Camera.main.transform.forward * 7);
+            Destroy(newFlash, 4);
             GameObject newbullet = Instantiate(laserProjectile, laserCrosshair.transform.position, Quaternion.identity);
             newbullet.transform.LookAt(player.position + Camera.main.transform.forward * 7);
             laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (300));

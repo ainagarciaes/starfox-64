@@ -100,6 +100,10 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = volume;
     }
 
+    public void SetVolume(float nvolume)
+    {
+        audioSource.volume = nvolume;
+    }
     public void RiseVolume()
     {
         audioSource.volume = 4 * volume;

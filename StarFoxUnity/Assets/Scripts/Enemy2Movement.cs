@@ -58,6 +58,7 @@ public class Enemy2Movement : MonoBehaviour
                 GameObject newFlash = Instantiate(muzzle, weapons[weaponIndex].transform.position, Quaternion.identity);
                 newFlash.transform.parent = gameObject.transform;
                 newFlash.transform.LookAt(gameObject.transform.forward);
+                Destroy(newFlash, 4);
             }
             GameObject newbullet = Instantiate(bullet, weapons[weaponIndex].transform.position, Quaternion.identity);
             newbullet.transform.LookAt(player.transform.position);
