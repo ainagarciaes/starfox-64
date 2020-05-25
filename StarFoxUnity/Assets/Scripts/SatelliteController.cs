@@ -34,17 +34,17 @@ public class SatelliteController : MonoBehaviour
     {
         if (!alive) return;
         if (laserCrosshair == null) return;
+        dist = Vector3.Distance(transform.position, player.position + player.forward * 6);
+        if (dist > 300) return;
         timeCounter += Time.deltaTime;
 
         if (laserCrosshair.activeSelf)
         {
             Vector3 lookDir = player.position + player.forward * 6 - transform.position;
-            float angle = Vector3.Angle(lookDir, transform.forward);
-            dist = Vector3.Distance(lookDir, Vector3.zero);
             Ray ray = new Ray(transform.position, transform.forward);
             float distToRay = Vector3.Cross(ray.direction, player.position - ray.origin).magnitude;
             //print(distToRay + " " + dist + " " + angle);
-            if (distToRay < 2)
+            if (distToRay < 0.5f)
                 laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (dist));
             else
                 laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (300));
@@ -60,7 +60,7 @@ public class SatelliteController : MonoBehaviour
             timeCounter = Random.Range(0, 0.5f);
             return;
         }
-        if (dist < 300 && timeCounter >= shootTime)
+        if (timeCounter >= shootTime)
         {
             timeCounter = 0;
             GameObject newFlash = Instantiate(muzzle, laserCrosshair.transform.position, Quaternion.identity);

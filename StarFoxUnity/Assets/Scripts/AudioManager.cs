@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
         // add reaction to pause menu
         paused = LevelManager.Instance.IsGamePaused();
 
