@@ -176,6 +176,7 @@ public class FollowScope : MonoBehaviour
         {
             print(other.gameObject.name);
             LevelManager.Instance.UpdateHitPoints(20, 1);
+            other.enabled = false;
             other.gameObject.transform.GetComponent<PerpetualRotation>().Explode();
         }
 
