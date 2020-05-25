@@ -846,12 +846,12 @@ PrefabInstance:
     - target: {fileID: 344688889131459866, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7,
         type: 3}
       propertyPath: m_Name
-      value: EnemyExplosion3
+      value: PlayerExplosion2
       objectReference: {fileID: 0}
     - target: {fileID: 344688889131459866, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7, type: 3}
@@ -1384,12 +1384,12 @@ PrefabInstance:
     - target: {fileID: 344688889131459866, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7,
         type: 3}
       propertyPath: m_Name
-      value: EnemyExplosion3 (1)
+      value: PlayerExplosion1
       objectReference: {fileID: 0}
     - target: {fileID: 344688889131459866, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7, type: 3}
@@ -2070,7 +2070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704803519}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PlayerExplosionHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2778,7 +2778,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b9b0e03d596bb7042aebec8df235ab0c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -827009855238603707, guid: b9b0e03d596bb7042aebec8df235ab0c,
         type: 3}
