@@ -851,7 +851,7 @@ PrefabInstance:
     - target: {fileID: 344688889131459866, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7, type: 3}
@@ -1389,7 +1389,7 @@ PrefabInstance:
     - target: {fileID: 344688889131459866, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab66bee5c4d6e1d479ef2719f1f3cdc7, type: 3}
@@ -2774,6 +2774,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VJ Fighter Frags
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b9b0e03d596bb7042aebec8df235ab0c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -827009855238603707, guid: b9b0e03d596bb7042aebec8df235ab0c,
         type: 3}

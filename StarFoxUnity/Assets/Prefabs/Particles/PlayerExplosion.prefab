@@ -4767,7 +4767,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aee2e3781f33f1347bab9abc1b0a89d1, type: 2}
+  - {fileID: 2100000, guid: 0dc1975ca7d516d44addbe51d6362ae4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4810,8 +4810,8 @@ ParticleSystemRenderer:
   m_Mesh: {fileID: -7411868224992515762, guid: 51a3403a13b66a14d80dedcb6d0f88eb, type: 3}
   m_Mesh1: {fileID: -4565379238959051154, guid: 03c8ae1469af86345b363320c1596e4e,
     type: 3}
-  m_Mesh2: {fileID: -52702517522444266, guid: df29ee3703bce2e41840daca7865b07d, type: 3}
-  m_Mesh3: {fileID: 4677049385206312254, guid: 9c039a0c0fc6c7140903723ec1becc1d, type: 3}
+  m_Mesh2: {fileID: 0}
+  m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
 --- !u!1 &344688889131459866
 GameObject:
@@ -4823,7 +4823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344688889131459865}
   m_Layer: 0
-  m_Name: EnemyExplosion2
+  m_Name: PlayerExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5067,8 +5067,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.6179246, b: 0.9196173, a: 1}
-      maxColor: {r: 0.9245283, g: 0.4753471, b: 0.63757974, a: 1}
+      minColor: {r: 0.73016393, g: 1, b: 0.61960787, a: 1}
+      maxColor: {r: 0.56072706, g: 0.9254902, b: 0.4745098, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9879,8 +9879,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.990566, g: 0.8559796, b: 0.58406013, a: 1}
-      maxColor: {r: 1, g: 0.84216255, b: 0.6462264, a: 1}
+      minColor: {r: 0.9375711, g: 0.99215686, b: 0.58431375, a: 1}
+      maxColor: {r: 0.80430454, g: 1, b: 0.514151, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
