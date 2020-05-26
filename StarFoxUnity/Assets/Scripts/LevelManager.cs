@@ -85,7 +85,7 @@ public class LevelManager : MonoBehaviour
         }
         turboGod.fillAmount = f;
         turboNormal.fillAmount = f;
-        
+
         IsPaused = PauseMenu.activeInHierarchy;
         Cursor.visible = IsPaused;
         if (!PauseMenu.activeInHierarchy)
@@ -159,6 +159,9 @@ public class LevelManager : MonoBehaviour
                 healthBar.fillAmount = 0;
                 if (!GodMode)
                 {
+                    MakeItExplode[] makeit = FindObjectsOfType(typeof(MakeItExplode)) as MakeItExplode[];
+                    if (makeit.Length != 0)
+                        makeit[0].Boom();
                     GameOver();
                 }
             }
