@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class garbageCollector : MonoBehaviour
+public class removeBullets : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,9 +18,12 @@ public class garbageCollector : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("TerrainCollider") && !other.gameObject.CompareTag("Spawner") && !other.gameObject.CompareTag("ToNextLevel") && !other.gameObject.CompareTag("DamagePerSecond"))
+        if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            Destroy(other.gameObject);  
+            print("SHOULD DESTROY");
+            other.gameObject.SetActive(false);
+            DestroyImmediate(other.gameObject);
         }
+        print("COLLISION " + other.gameObject.name);
     }
 }
