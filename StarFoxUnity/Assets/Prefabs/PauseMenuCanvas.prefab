@@ -107,8 +107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: -200, y: -200}
+  m_AnchoredPosition: {x: 0, y: 40}
+  m_SizeDelta: {x: -100, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8014613657600204888
 CanvasRenderer:
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_text: 'INSTRUCTIONS/CONTROLLS
 
 
-    - Move the mouse to control the spaceship
+    - Move the mouse to control the spaceship.
 
 
     -
@@ -147,14 +147,18 @@ MonoBehaviour:
 
 
     - Click or hold Left-Click to shoot
-    at the enemies
+    at the enemies.
 
 
     - Press A or D to roll to the sides. This will avoid enemy
     bullets!
 
 
-    - Press P or ESC to enter/exit pause menu quickly'
+    - Hold W or S to increase or decrease the spaceship velocity.
+    Try not to run out of gas.
+
+
+    - Press P or ESC to enter/exit pause menu quickly.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9db5b9ad28b59eb40a309b2ce5fdf938, type: 2}
   m_sharedMaterial: {fileID: 4508565351580530019, guid: 9db5b9ad28b59eb40a309b2ce5fdf938,
@@ -183,11 +187,11 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 23.85
+  m_fontSize: 19.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 10
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 520
@@ -224,12 +228,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8014613657600204895}
-    characterCount: 278
+    characterCount: 371
     spriteCount: 0
-    spaceCount: 54
-    wordCount: 52
+    spaceCount: 74
+    wordCount: 71
     linkCount: 0
-    lineCount: 12
+    lineCount: 15
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
