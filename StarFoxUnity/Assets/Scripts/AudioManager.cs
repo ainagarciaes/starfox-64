@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public float volume;
     public bool spatialSound = false;
     public bool random = false;
+    public float maxDistance =500;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,7 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.spatialBlend = 1;
             audioSource.rolloffMode = AudioRolloffMode.Linear;
+            audioSource.maxDistance = 1000;
         }
         audioSource.Play();
     }

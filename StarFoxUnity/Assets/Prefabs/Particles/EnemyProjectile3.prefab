@@ -50,7 +50,7 @@ MonoBehaviour:
   hit: {fileID: 3022899725138503779, guid: a1229ec9b8bfbd04aaf87f23b314d137, type: 3}
   direction: {x: 0, y: 0, z: 0}
   speed: 500
-  damage: 3
+  damage: 5
 --- !u!65 &6149449090252577579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.5}
+  m_Size: {x: 3, y: 3, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3022899725566972151
 GameObject:
@@ -348,8 +348,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 10
-      minScalar: 10
+      scalar: 20
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -401,8 +401,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 10
-      minScalar: 10
+      scalar: 20
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -454,8 +454,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 10
-      minScalar: 10
+      scalar: 20
+      minScalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4892,7 +4892,7 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.2
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5239,7 +5239,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2

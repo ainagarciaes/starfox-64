@@ -25,7 +25,7 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (hit != null)
         {
-            var hitGO = Instantiate(hit, transform.position, Quaternion.identity);
+            var hitGO = Instantiate(hit, transform.position- transform.forward * speed * Time.deltaTime, Quaternion.identity);
             Destroy(hitGO, 3);
         }
         Destroy(gameObject);

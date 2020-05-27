@@ -14,8 +14,8 @@ public class Enemy2Movement : MonoBehaviour
     public Vector3 MoveTo;
 
     GameObject player;
-    private const int maxShield = 40, life = 40;
-    private const float spraySpan = 1.5f, shieldCooldown = 3f;
+    private const int maxShield = 30, life = 40;
+    private const float spraySpan = 2f, shieldCooldown = 4f;
     private bool alive;
 
     int weaponIndex;

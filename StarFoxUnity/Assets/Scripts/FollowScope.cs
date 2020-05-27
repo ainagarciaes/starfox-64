@@ -43,29 +43,7 @@ public class FollowScope : MonoBehaviour
         else
         {
             LevelManager.Instance.SetRotation(rotating);
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                currentRotation = 0;
-                rollingSpeed = 1;
-                rotating = true;
-                rollInitialized = false;
-                rotation_side = -1;
-                bias = 1;
-                duration = 0;
-                finalBarrelX = Mathf.Clamp(viewportPos.x - 0.3f, 0.1f, 0.9f);
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                currentRotation = 0;
-                rollingSpeed = 1;
-                rotating = true;
-                rollInitialized = false;
-                rotation_side = 1;
-                bias = 1;
-                duration = 0;
-                finalBarrelX = Mathf.Clamp(viewportPos.x + 0.3f, 0.1f, 0.9f);
 
-            }
             if (rotating)
             {
                 DoABarrelRoll();
@@ -74,6 +52,29 @@ public class FollowScope : MonoBehaviour
             }
             else
             {
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    currentRotation = 0;
+                    rollingSpeed = 1;
+                    rotating = true;
+                    rollInitialized = false;
+                    rotation_side = -1;
+                    bias = 1;
+                    duration = 0;
+                    finalBarrelX = Mathf.Clamp(viewportPos.x - 0.3f, 0.1f, 0.9f);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    currentRotation = 0;
+                    rollingSpeed = 1;
+                    rotating = true;
+                    rollInitialized = false;
+                    rotation_side = 1;
+                    bias = 1;
+                    duration = 0;
+                    finalBarrelX = Mathf.Clamp(viewportPos.x + 0.3f, 0.1f, 0.9f);
+
+                }
                 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
                 viewportAim = Camera.main.WorldToViewportPoint(lookAtObject.transform.position);
                 transform.LookAt(lookAtObject.transform.position);

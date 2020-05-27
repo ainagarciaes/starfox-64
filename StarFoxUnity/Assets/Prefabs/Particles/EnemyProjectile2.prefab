@@ -63,7 +63,7 @@ MonoBehaviour:
   hit: {fileID: 3022899725138503779, guid: 79e923e6fc4750c4d92da896c6ef085c, type: 3}
   direction: {x: 0, y: 0, z: 0}
   speed: 150
-  damage: 5
+  damage: 2
 --- !u!65 &6149449090252577579
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -64,10 +64,10 @@ public class SatelliteController : MonoBehaviour
         {
             timeCounter = 0;
             GameObject newFlash = Instantiate(muzzle, laserCrosshair.transform.position, Quaternion.identity);
-            newFlash.transform.LookAt(player.position + Camera.main.transform.forward * 7);
+            newFlash.transform.LookAt(player.position + Camera.main.transform.forward * 20);
             Destroy(newFlash, 4);
             GameObject newbullet = Instantiate(laserProjectile, laserCrosshair.transform.position, Quaternion.identity);
-            newbullet.transform.LookAt(player.position + Camera.main.transform.forward * 7);
+            newbullet.transform.LookAt(player.position + player.parent.transform.forward * 20);
             laserCrosshair.GetComponent<LineRenderer>().SetPosition(1, Vector3.forward * (300));
             laserCrosshair.SetActive(false);
         }
