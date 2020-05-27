@@ -163,13 +163,21 @@ public class FollowScope : MonoBehaviour
         if (other.CompareTag("EnemyBullet"))
         {
             hits++;
-            LevelManager.Instance.UpdateHitPoints(1, 0);
+            int damage = 1;
+
             if (other.gameObject.GetComponent<ProjectileMovement>() != null)
+            {
                 other.gameObject.GetComponent<ProjectileMovement>().HitnDestroy();
+                damage = other.gameObject.GetComponent<ProjectileMovement>().GetDamage();
+            }
             else if (other.gameObject.GetComponent<SmartProjectileMovement>() != null)
             {
                 other.gameObject.GetComponent<SmartProjectileMovement>().HitnDestroy();
+                damage = other.gameObject.GetComponent<SmartProjectileMovement>().GetDamage();
             }
+            LevelManager.Instance.UpdateHitPoints(damage, 0);
+            print(damage);
+
         }
 
         if (other.CompareTag("CollidableEnemy"))

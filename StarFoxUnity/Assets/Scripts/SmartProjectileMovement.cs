@@ -7,11 +7,11 @@ public class SmartProjectileMovement : MonoBehaviour
     [SerializeField] GameObject hit;
     public Vector3 direction;
     public int speed = 300;
-    public float lifetime;
+    public int damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
-        lifetime = 0;
         direction = transform.forward;
         Destroy(gameObject, 5f);
     }
@@ -19,11 +19,7 @@ public class SmartProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifetime += Time.deltaTime;
         transform.position += transform.forward * speed * Time.deltaTime;
-        //if (lifetime > 1) Destroy(this);
-        //if( Camera.main.WorldToViewportPoint(transform.position).z< 30) DestroyImmediate(gameObject);
-
     }
 
     public void HitnDestroy()
@@ -31,5 +27,9 @@ public class SmartProjectileMovement : MonoBehaviour
         if (hit != null)
             Instantiate(hit, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+    public int GetDamage()
+    {
+        return damage;
     }
 }
