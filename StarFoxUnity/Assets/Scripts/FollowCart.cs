@@ -17,8 +17,9 @@ public class FollowCart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float extraSpeed = (LookAtObj.GetComponent<Cinemachine.CinemachineDollyCart>().m_Speed - 20) / 4; 
         if (!enabled) return;
-        transform.position = PlayerArea.transform.position +(PlayerArea.transform.position - LookAtObj.transform.position).normalized*40;
+        transform.position = PlayerArea.transform.position +(PlayerArea.transform.position - LookAtObj.transform.position).normalized*(50+extraSpeed);
         transform.LookAt(LookAtObj.transform.position);
     }
 }
