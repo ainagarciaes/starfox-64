@@ -22,6 +22,8 @@ public class EnemyMovement : MonoBehaviour
 
 
     bool hasChanged = false;
+    AudioManager AudioMngr;
+
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
         waitToShoot = 0;
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectsWithTag("Player")[0];
+        AudioMngr = gameObject.transform.Find("E1 Fighter").transform.Find("LaserSound").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,7 @@ public class EnemyMovement : MonoBehaviour
         if (waitToShoot > 0) waitToShoot -= Time.deltaTime;
         else if (OnScreen() && current > 1)
         {
+            AudioMngr.PlaySound();
             GameObject newFlash = Instantiate(muzzle, weapons[weaponIndex].transform.position, Quaternion.identity);
             newFlash.transform.parent = gameObject.transform;
             newFlash.transform.LookAt(gameObject.transform.forward);
