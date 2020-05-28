@@ -283,9 +283,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 8
-      minScalar: 1
+      minMaxState: 3
+      scalar: 0.3
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -336,7 +336,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -389,7 +389,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -4807,9 +4807,8 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: -7411868224992515762, guid: 51a3403a13b66a14d80dedcb6d0f88eb, type: 3}
-  m_Mesh1: {fileID: -4565379238959051154, guid: 03c8ae1469af86345b363320c1596e4e,
-    type: 3}
+  m_Mesh: {fileID: 2063538663989680261, guid: a026fd2f41b165f4983f5f3cbbeac928, type: 3}
+  m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0

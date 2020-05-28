@@ -265,7 +265,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0843cd0b5ba9bf54fa0e1b4d9d157e97,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0843cd0b5ba9bf54fa0e1b4d9d157e97, type: 3}
@@ -587,6 +587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 7378555277615035395, guid: ad8febe6c3b7db24abc907ac367b66f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad8febe6c3b7db24abc907ac367b66f8, type: 3}
 --- !u!1001 &786151571
@@ -820,6 +825,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: satelliteV2
       objectReference: {fileID: 0}
+    - target: {fileID: 9197432707629655668, guid: 8c09a1639b2375348a1307a45dc2e4dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c09a1639b2375348a1307a45dc2e4dc, type: 3}
 --- !u!1001 &1223558511
@@ -912,7 +922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1309152712
 Transform:
   m_ObjectHideFlags: 0
@@ -1602,6 +1612,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666895166811660286, guid: 677fa9a8e2c50f34183bb1ab9a3589ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 677fa9a8e2c50f34183bb1ab9a3589ff, type: 3}
